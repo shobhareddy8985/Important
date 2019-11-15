@@ -1,0 +1,45 @@
+1.setup 
+2.obtain a Git repository in one of two ways:
+
+a)You can take a local directory that is currently not under version control, and turn it into a Git repository, or
+
+b)You can clone an existing Git repository from remote to local system.
+
+local folder push to remote repo:
+if you have a project directory that is currently not under version control and you want to start controlling it with Git, you first need to go to that project’s directory.
+
+$ cd /c/user/my_project
+
+and type:
+
+$ git init
+
+This creates a new subdirectory named .git that contains all of your necessary repository files.a Git repository skeleton. At this point, nothing in your project is tracked yet. (See Git Internals for more information about exactly what files are contained in the .git directory you just created.)
+
+If you want to start version-controlling existing files (as opposed to an empty directory), you should probably begin tracking those files and do an initial commit. You can accomplish that with a few git add commands that specify the files you want to track, followed by a git commit:
+
+
+3)pushing a file from local bash to remote.
+$ vi abc.txt
+$ git add abc.txt
+$ git status
+it will show some message with unstage file abc.txt
+
+$ git commit -m 'initial project version'
+
+
+Undo most recent commit
+To undo the most recent commit, type:
+
+git reset HEAD~1
+
+
+
+Merge a branch with master branch:
+----------------------------------
+When you are ready to make all the changes in a branch a permanent addition to the master branch, you merge the two together:
+git branch
+feature (one of the branch in master)
+git checkout master  (change the  branch  from  feature to master)
+git merge master (commit the branch content  to master)
+

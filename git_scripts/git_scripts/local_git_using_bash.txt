@@ -1,0 +1,107 @@
+start :
+
+git software installation if we want to run git commands through cmd
+
+open git bash
+
+ssh key generation
+------------------
+ssh-keygen -C "shobha.reddy@diyotta.com" -t rsa
+
+ask for the location --(by default it will create in below path)
+
+press enter for 3 times
+C:\Users\E180202
+
+E180202@WSTINR214 MINGW64 ~
+$ ssh-keygen -C "shobha.reddy@diyotta.com" -t rsa                                                                                                                       Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/E180202/.ssh/id_rsa):
+Created directory '/c/Users/E180202/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/E180202/.ssh/id_rsa.
+Your public key has been saved in /c/Users/E180202/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:l9n78+67FRHsli++pP2dVzcAiK0rxtKDfGt0eJN5qT8 shobha.reddy@diyotta.com
+The key's randomart image is:
++---[RSA 3072]----+
+|        o .   .. |
+|       . o .   ..|
+|        .   . ...|
+|       .   + . +.|
+|  . + . S = . o..|
+|   + X B +   ...=|
+|    = * +   ....=|
+|     o . E   =o =|
+|    .   ... . +@X|
++----[SHA256]-----+
+
+E180202@WSTINR214 MINGW64 ~
+$ ls ~/.ssh
+id_rsa  id_rsa.pub
+
+E180202@WSTINR214 MINGW64 ~
+$
+
+3)PASTE THE SSH KEY CODE TO GIT HUB ACCOUNT.
+
+TO CHECK THE LIST OF 
+$ git config --list --show-origin
+file:"C:\\ProgramData/Git/config"       core.symlinks=false
+file:"C:\\ProgramData/Git/config"       core.autocrlf=true
+file:"C:\\ProgramData/Git/config"       core.fscache=true
+file:"C:\\ProgramData/Git/config"       color.diff=auto
+file:"C:\\ProgramData/Git/config"       color.status=auto
+file:"C:\\ProgramData/Git/config"       color.branch=auto
+file:"C:\\ProgramData/Git/config"       color.interactive=true
+file:"C:\\ProgramData/Git/config"       help.format=html
+file:"C:\\ProgramData/Git/config"       rebase.autosquash=true
+file:C:/Users/E180202/AppData/Local/Programs/Git/mingw64/etc/gitconfig  http.sslcainfo=C:/Users/E180202/AppData/Local/Programs/Git/mingw64/ssl/certs/ca-bundle.crt
+file:C:/Users/E180202/AppData/Local/Programs/Git/mingw64/etc/gitconfig  http.sslbackend=openssl
+file:C:/Users/E180202/AppData/Local/Programs/Git/mingw64/etc/gitconfig  diff.astextplain.textconv=astextplain
+file:C:/Users/E180202/AppData/Local/Programs/Git/mingw64/etc/gitconfig  filter.lfs.clean=git-lfs clean -- %f
+file:C:/Users/E180202/AppData/Local/Programs/Git/mingw64/etc/gitconfig  filter.lfs.smudge=git-lfs smudge --skip -- %f
+file:C:/Users/E180202/AppData/Local/Programs/Git/mingw64/etc/gitconfig  filter.lfs.process=git-lfs filter-process --skip
+file:C:/Users/E180202/AppData/Local/Programs/Git/mingw64/etc/gitconfig  filter.lfs.required=true
+file:C:/Users/E180202/AppData/Local/Programs/Git/mingw64/etc/gitconfig  credential.helper=manager
+file:C:/Users/E180202/.gitconfig        filter.lfs.clean=git-lfs clean -- %f
+file:C:/Users/E180202/.gitconfig        filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Users/E180202/.gitconfig        filter.lfs.process=git-lfs filter-process
+file:C:/Users/E180202/.gitconfig        filter.lfs.required=true
+file:C:/Users/E180202/.gitconfig        user.name=shobhareddy
+file:C:/Users/E180202/.gitconfig        user.email=shobha.reddy@diyotta.com
+file:C:/Users/E180202/.gitconfig        difftool.sourcetree.cmd='' "$LOCAL" "$REMOTE"
+file:C:/Users/E180202/.gitconfig        mergetool.sourcetree.cmd=''
+file:C:/Users/E180202/.gitconfig        mergetool.sourcetree.trustexitcode=true
+
+E180202@WSTINR214 MINGW64 ~
+
+
+4)CLONING (COPY THE REMOTE REPOSITORY TO LOCAL COMPUTER)
+
+1)copy the repository url (using ssh or http)
+
+git@github.com:shobhareddy8985/local_techstyle.git (ssh)
+
+2)got to terminal and type pwd
+
+to know the current location using cmd
+ 
+ $ pwd
+ 
+/c/Users/E180202
+
+3)enter the path you want to copy the remote repository.
+
+cd "C:\Users\E180202\Documents\Git_local"
+
+cd "folder_location"
+
+4) git clone url_of_ssh_git/http
+
+git clone git@github.com:shobhareddy8985/local_techstyle.git
+
+
+5) cloned repository exist in below local folder.
+$pwd
+/c/Users/E180202/Documents/Git_local

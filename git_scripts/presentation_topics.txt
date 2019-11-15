@@ -1,0 +1,122 @@
+git software installation if we want to run git commands through cmd
+
+git software we need to intall in our local machine.
+
+open git bash
+
+ssh key generation  (without password)
+------------------
+ssh-keygen -C "shobha.reddy@diyotta.com" -t rsa
+
+the above ssh command will generate public key and copy the key and  got to git repository and-->sesstings-->ssh key-->paste the key and save the kssh key.
+
+Steps to create local_repository:
+-------------------------------
+creating your local repository using mkdir 
+
+mkdir local_git_repo
+cd local_git_repo
+ 
+place any file in the local_git_repo folder to push file to git repository.
+ 
+ perform the below operations.
+ 1) git init  
+ 2) git add . or git add ['filename']
+ 3) git commit -m "My first File"
+ 4) git remote add origin https://github.com/yourusername/your-repo-name.git
+ 5) git pull origin master
+ 6) git push origin master
+
+git clone git@github.com:shobhareddy8985/local_techstyle.git
+
+
+branching:
+---------
+
+create a branch  and push the newly created local branch to remote git repository:
+--------------------------------------------------------------------------------
+
+git pull (before creation we need to get the all the content from git )
+
+git branch feature1
+
+git checkout feature1
+
+git remote add branch2 git@github.com:shobhareddy8985/local_techstyle
+
+git push -u branch2 feature1
+
+
+to rename the local branch with diff name in remote.
+-------------------------------------------------
+git push remote_name local_branch:new_remote_branchname you want to change)
+
+git push origin stage1:development
+
+
+to delete the local branch and did the same deletion in remote
+-------------------------------------------
+git checkout master (change the branch befre delete the branch)
+
+git branch -d branch_name
+
+git branch -d feature1
+git push remote_name --delete branch_name
+git push branch2 --delete feature1
+
+to get the files in the existing branches
+---------------------------------
+
+git branch -a
+
+git fetch
+
+below is the command if we use multiple remote names )   
+  remotes/branch1/master
+  remotes/branch1/test
+  remotes/branch2/feature
+  remotes/branch2/master
+  remotes/branch2/test
+  remotes/origin/feature
+  remotes/origin/master
+  remotes/origin/test
+  remotes/origin1/feature
+  remotes/origin1/master
+  remotes/origin1/test
+  remotes/origin2/feature
+  remotes/origin2/master
+  remotes/origin2/test
+
+git checkout -b test branch1/test   (remotes/branch1/test)
+git checkout test
+
+
+
+
+[ditechstyle@lvclab8130 LocalGit]$ git checkout test
+error: pathspec 'test' did not match any file(s) known to git.
+[ditechstyle@lvclab8130 LocalGit]$ git checkout -b test branch1/test
+Branch test set up to track remote branch test from branch1.
+Switched to a new branch 'test'
+
+
+
+git pull, in contrast, is used with a different goal in mind: to update your current HEAD branch with the latest changes from the remote server. This means that pull not only downloads new data; it also directly integrates it into your current working copy files. This has a couple of consequences:
+
+git fetch really only downloads new data from a remote repository - but it doesn't integrate any of this new data into your working files. Fetch is great for getting a fresh view on all the things that happened in a remote repository.
+Due to it's "harmless" nature, you can rest assured: fetch will never manipulate, destroy, or screw up anything. This means you can never fetch often enough.
+
+Since "git pull" tries to merge remote changes with your local ones, a so-called "merge conflict" can occur. Check out our in-depth tutorial on How to deal with merge conflicts for more information.
+
+like for many other actions, it's highly recommended to start a "git pull" only with a clean working copy. This means that you should not have any uncommitted local changes before you pull. Use Git's Stash feature to
+
+
+---------------
+Saving Changes Temporarily
+A commit wraps up changes and saves them permanently in the repository. However, in your day-to-day work, there are a lot of situations where you only want to save your local changes temporarily. For example, imagine you're in the middle of some changes for feature X when an important bug report comes in. Your local changes don't belong to the bugfix you're going to make. You have to get rid of them (temporarily, without losing them!) and continue working on them later.
+
+Situations like this one happen all the time: you have some local changes in your working copy that you can't commit right now - and you want or need to start working on something else. To get these changes out of your way and have a "clean" working copy, Git's "Stash" feature comes in handy.
+
+git stash
+
+git stash list
