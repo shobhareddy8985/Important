@@ -1,0 +1,262 @@
+[ditechstyle@lpcdiapp2 diserver]$ cd conf
+[ditechstyle@lpcdiapp2 conf]$ ls -ltr
+total 16
+-rwx------ 1 ditechstyle ditechstyle 1251 Jul 19 06:16 diagent.config
+-rwx------ 1 ditechstyle ditechstyle  227 Aug  2 03:59 okta.config
+-rwx------ 1 ditechstyle ditechstyle 1903 Dec 19 06:59 diserver.config
+-rwx------ 1 ditechstyle ditechstyle  107 Dec 20 10:07 dicmd.config
+[ditechstyle@lpcdiapp2 conf]$ vi diserver.config
+[ditechstyle@lpcdiapp2 conf]$ ifconfig
+em1       Link encap:Ethernet  HWaddr 84:8F:69:DE:ED:0B
+          inet addr:172.40.9.203  Bcast:172.40.9.255  Mask:255.255.255.0
+          inet6 addr: fe80::868f:69ff:fede:ed0b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:440762177 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:395803951 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:242102904003 (225.4 GiB)  TX bytes:260153117525 (242.2 GiB)
+
+em2       Link encap:Ethernet  HWaddr 84:8F:69:DE:ED:0D
+          inet6 addr: fe80::868f:69ff:fede:ed0d/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:32534306 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:2127698630 (1.9 GiB)  TX bytes:0 (0.0 b)
+
+em3       Link encap:Ethernet  HWaddr 84:8F:69:DE:ED:0F
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+em4       Link encap:Ethernet  HWaddr 84:8F:69:DE:ED:11
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:1377706451 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1377706451 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:1243897716715 (1.1 TiB)  TX bytes:1243897716715 (1.1 TiB)
+
+[ditechstyle@lpcdiapp2 conf]$ psql
+psql: could not connect to server: No such file or directory
+        Is the server running locally and accepting
+        connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+[ditechstyle@lpcdiapp2 conf]$ cd ..
+[ditechstyle@lpcdiapp2 diserver]$ ls -ltr
+total 512
+-rwx------  1 ditechstyle ditechstyle  99954 Mar 14  2017 cacerts
+-rw-rw-r--  1 ditechstyle ditechstyle    286 Jul 18 21:23 direp_qa_131.keytab
+drwx------  7 ditechstyle ditechstyle   4096 Jul 19 06:15 tutorial
+drwx------  3 ditechstyle ditechstyle   4096 Jul 19 06:15 lib
+drwx------  2 ditechstyle ditechstyle   4096 Oct 22 00:58 assets
+drwx------  2 ditechstyle ditechstyle   4096 Dec 19 01:35 work
+drwxrwxr-x  2 ditechstyle ditechstyle   4096 Jan  3 04:22 backups
+drwx------  2 ditechstyle ditechstyle   4096 Jan  3 08:44 keys
+drwx------  5 ditechstyle ditechstyle   4096 Jan  5 02:04 support
+drwx------  8 ditechstyle ditechstyle   4096 Jan 17 04:25 server
+drwx------  2 ditechstyle ditechstyle   4096 Jan 17 04:34 bin
+drwx------  2 ditechstyle ditechstyle   4096 Jan 17 05:29 logs
+-rw-rw-r--  1 ditechstyle ditechstyle    523 Jan 17 05:41 a.txt
+-rw-rw-r--  1 ditechstyle ditechstyle    173 Jan 17 05:41 project_name.txt
+drwxrwx--- 13 ditechstyle ditechstyle   4096 Jan 17 05:59 app
+-rwxrwxrwx  1 ditechstyle ditechstyle   1018 Jan 17 07:10 export.sh
+-rw-rw-r--  1 ditechstyle ditechstyle     45 Jan 17 07:10 project_name_Final.txt
+-rw-rw-r--  1 ditechstyle ditechstyle 351190 Jan 17 07:11 jf_edw_dim_return_line_exception.json
+drwx------  2 ditechstyle ditechstyle   4096 Jan 17 07:22 conf
+[ditechstyle@lpcdiapp2 diserver]$ cd bin
+[ditechstyle@lpcdiapp2 bin]$ ls -ltr
+total 15304
+-rwx------ 1 ditechstyle ditechstyle    3392 Mar 14  2017 pgrestore.sh
+-rwx------ 1 ditechstyle ditechstyle    2373 Mar 14  2017 pgbackup.sh
+-rwx------ 1 ditechstyle ditechstyle 7777528 Mar 14  2017 cassandra-unloader
+-rwx------ 1 ditechstyle ditechstyle 7816327 Mar 14  2017 cassandra-loader
+-rwx------ 1 ditechstyle ditechstyle    1685 Mar 15  2017 dicmd
+-rwx------ 1 ditechstyle ditechstyle    1809 Jan 11  2018 diserviceshutdown.sh
+-rwx------ 1 ditechstyle ditechstyle    1120 Mar 15  2018 agentrestart.sh
+-rwx------ 1 ditechstyle ditechstyle    3556 Apr  6  2018 agentshutdown.sh
+-rwx------ 1 ditechstyle ditechstyle   10235 Apr  9  2018 agentstartup.sh
+-rwx------ 1 ditechstyle ditechstyle    4463 May  4  2018 diservicestartup.sh
+-rwx------ 1 ditechstyle ditechstyle   15265 Jul 19 06:16 serverstartup.sh
+-rwx------ 1 ditechstyle ditechstyle    7851 Jul 19 06:16 servershutdown.sh
+-rwx------ 1 ditechstyle ditechstyle    1663 Dec 17 11:45 pgvacuum.sh
+[ditechstyle@lpcdiapp2 bin]$ cd ..
+[ditechstyle@lpcdiapp2 diserver]$ ls -ltr
+total 512
+-rwx------  1 ditechstyle ditechstyle  99954 Mar 14  2017 cacerts
+-rw-rw-r--  1 ditechstyle ditechstyle    286 Jul 18 21:23 direp_qa_131.keytab
+drwx------  7 ditechstyle ditechstyle   4096 Jul 19 06:15 tutorial
+drwx------  3 ditechstyle ditechstyle   4096 Jul 19 06:15 lib
+drwx------  2 ditechstyle ditechstyle   4096 Oct 22 00:58 assets
+drwx------  2 ditechstyle ditechstyle   4096 Dec 19 01:35 work
+drwxrwxr-x  2 ditechstyle ditechstyle   4096 Jan  3 04:22 backups
+drwx------  2 ditechstyle ditechstyle   4096 Jan  3 08:44 keys
+drwx------  5 ditechstyle ditechstyle   4096 Jan  5 02:04 support
+drwx------  8 ditechstyle ditechstyle   4096 Jan 17 04:25 server
+drwx------  2 ditechstyle ditechstyle   4096 Jan 17 04:34 bin
+drwx------  2 ditechstyle ditechstyle   4096 Jan 17 05:29 logs
+-rw-rw-r--  1 ditechstyle ditechstyle    523 Jan 17 05:41 a.txt
+-rw-rw-r--  1 ditechstyle ditechstyle    173 Jan 17 05:41 project_name.txt
+drwxrwx--- 13 ditechstyle ditechstyle   4096 Jan 17 05:59 app
+-rwxrwxrwx  1 ditechstyle ditechstyle   1018 Jan 17 07:10 export.sh
+-rw-rw-r--  1 ditechstyle ditechstyle     45 Jan 17 07:10 project_name_Final.txt
+-rw-rw-r--  1 ditechstyle ditechstyle 351190 Jan 17 07:11 jf_edw_dim_return_line_exception.json
+drwx------  2 ditechstyle ditechstyle   4096 Jan 17 07:22 conf
+[ditechstyle@lpcdiapp2 diserver]$ cd server
+[ditechstyle@lpcdiapp2 server]$ ls -ltr
+total 24
+drwx------ 3 ditechstyle ditechstyle 4096 Jul 19 06:15 cli
+drwx------ 3 ditechstyle ditechstyle 4096 Jul 19 06:15 agent
+drwx------ 5 ditechstyle ditechstyle 4096 Jul 19 06:15 jre
+drwx------ 9 ditechstyle ditechstyle 4096 Jul 19 06:15 tomcat
+drwx------ 2 ditechstyle ditechstyle 4096 Jul 19 06:16 agentservice
+drwx------ 8 ditechstyle ditechstyle 4096 Jul 19 06:16 pgsql
+[ditechstyle@lpcdiapp2 server]$ cd pgsql
+[ditechstyle@lpcdiapp2 pgsql]$ ls -ltr
+total 36
+drwx------  4 ditechstyle ditechstyle 4096 Jul 19 06:15 share
+drwx------  2 ditechstyle ditechstyle 4096 Jul 19 06:15 backups
+drwx------ 10 ditechstyle ditechstyle 4096 Jul 19 06:15 include
+-rwx------  1 ditechstyle ditechstyle  662 Jul 19 06:16 stopdb.sh
+-rwx------  1 ditechstyle ditechstyle  680 Jul 19 06:16 startdb.sh
+-rwx------  1 ditechstyle ditechstyle  613 Jul 19 06:16 initdb.sh
+drwx------  4 ditechstyle ditechstyle 4096 Jul 19 06:16 lib
+drwx------  2 ditechstyle ditechstyle 4096 Dec 27 09:09 bin
+drwx------ 15 ditechstyle ditechstyle 4096 Jan 17 04:34 direpdata
+[ditechstyle@lpcdiapp2 pgsql]$ cd bin
+[ditechstyle@lpcdiapp2 bin]$ ls -ltr
+total 8752
+-rwx------ 1 ditechstyle ditechstyle   26773 Mar 14  2017 vacuumlo
+-rwx------ 1 ditechstyle ditechstyle   60926 Mar 14  2017 vacuumdb
+-rwx------ 1 ditechstyle ditechstyle   60544 Mar 14  2017 reindexdb
+-rwx------ 1 ditechstyle ditechstyle  439589 Mar 14  2017 psql.bin
+-rwx------ 1 ditechstyle ditechstyle     763 Mar 14  2017 psql
+-rwx------ 1 ditechstyle ditechstyle       8 Mar 14  2017 postmaster
+-rwx------ 1 ditechstyle ditechstyle 5755100 Mar 14  2017 postgres
+-rwx------ 1 ditechstyle ditechstyle   11463 Mar 14  2017 pltcl_loadmod
+-rwx------ 1 ditechstyle ditechstyle    2385 Mar 14  2017 pltcl_listmod
+-rwx------ 1 ditechstyle ditechstyle    2227 Mar 14  2017 pltcl_delmod
+-rwx------ 1 ditechstyle ditechstyle   50999 Mar 14  2017 pg_xlogdump
+-rwx------ 1 ditechstyle ditechstyle  111540 Mar 14  2017 pg_upgrade
+-rwx------ 1 ditechstyle ditechstyle   16818 Mar 14  2017 pg_test_timing
+-rwx------ 1 ditechstyle ditechstyle   22592 Mar 14  2017 pg_test_fsync
+-rwx------ 1 ditechstyle ditechstyle   26400 Mar 14  2017 pg_standby
+-rwx------ 1 ditechstyle ditechstyle  148963 Mar 14  2017 pg_restore
+-rwx------ 1 ditechstyle ditechstyle   37514 Mar 14  2017 pg_resetxlog
+-rwx------ 1 ditechstyle ditechstyle   48604 Mar 14  2017 pg_receivexlog
+-rwx------ 1 ditechstyle ditechstyle   33515 Mar 14  2017 pg_isready
+-rwx------ 1 ditechstyle ditechstyle   82535 Mar 14  2017 pg_dumpall
+-rwx------ 1 ditechstyle ditechstyle  351806 Mar 14  2017 pg_dump
+-rwx------ 1 ditechstyle ditechstyle   45706 Mar 14  2017 pg_ctl
+-rwx------ 1 ditechstyle ditechstyle   30476 Mar 14  2017 pg_controldata
+-rwx------ 1 ditechstyle ditechstyle   31267 Mar 14  2017 pg_config
+-rwx------ 1 ditechstyle ditechstyle   60291 Mar 14  2017 pgbench
+-rwx------ 1 ditechstyle ditechstyle   71635 Mar 14  2017 pg_basebackup
+-rwx------ 1 ditechstyle ditechstyle   20665 Mar 14  2017 pg_archivecleanup
+-rwx------ 1 ditechstyle ditechstyle   27565 Mar 14  2017 oid2name
+-rwx------ 1 ditechstyle ditechstyle  101871 Mar 14  2017 initdb
+-rwx------ 1 ditechstyle ditechstyle  766616 Mar 14  2017 ecpg
+-rwx------ 1 ditechstyle ditechstyle   57145 Mar 14  2017 dropuser
+-rwx------ 1 ditechstyle ditechstyle   65554 Mar 14  2017 droplang
+-rwx------ 1 ditechstyle ditechstyle   57175 Mar 14  2017 dropdb
+-rwx------ 1 ditechstyle ditechstyle   61632 Mar 14  2017 createuser
+-rwx------ 1 ditechstyle ditechstyle   65692 Mar 14  2017 createlang
+-rwx------ 1 ditechstyle ditechstyle   59870 Mar 14  2017 createdb
+-rwx------ 1 ditechstyle ditechstyle   59776 Mar 14  2017 clusterdb
+-rw-rw-r-- 1 ditechstyle ditechstyle     832 Dec 27 09:10 calhost
+[ditechstyle@lpcdiapp2 bin]$ pwd
+/app/ditechstyle/diserver/server/pgsql/bin
+[ditechstyle@lpcdiapp2 bin]$
+[ditechstyle@lpcdiapp2 bin]$
+[ditechstyle@lpcdiapp2 bin]$ psql -h localhost -p 9053 -U $PG_USER -w -d $PG_DATABASE
+psql (9.4.19, server 9.3.5)
+Type "help" for help.
+
+direpdb=# select
+
+
+to exit the post gres sql 
+
+press cntl+d
+
+To know the controller is connected to the PG check the ip address of controller
+go to ------>cd diserver
+[ditechstyle@lpcdiapp2 diserver]$ cd conf
+[ditechstyle@lpcdiapp2 conf]$ ls -ltr
+total 16
+-rwx------ 1 ditechstyle ditechstyle 1251 Jul 19 06:16 diagent.config
+-rwx------ 1 ditechstyle ditechstyle  227 Aug  2 03:59 okta.config
+-rwx------ 1 ditechstyle ditechstyle 1903 Dec 19 06:59 diserver.config
+-rwx------ 1 ditechstyle ditechstyle  107 Dec 20 10:07 dicmd.config
+[ditechstyle@lpcdiapp2 conf]$ vi diserver.config
+[ditechstyle@lpcdiapp2 conf]$ ifconfig
+em1       Link encap:Ethernet  HWaddr 84:8F:69:DE:ED:0B
+          inet addr:172.40.9.203  Bcast:172.40.9.255  Mask:255.255.255.0
+		  
+to run any query in pg sql---
+go to --->
+/app/ditechstyle/diserver/server/pgsql/bin
+
+ [ditechstyle@lpcdiapp2 bin]$ psql -h localhost -p 9053 -U $PG_USER -w -d $PG_DATABASE
+psql (9.4.19, server 9.3.5)
+Type "help" for help.
+
+
+
+direpdb=#
+
+now you are in pg meta data database 
+
+
+
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+export JAVA_HOME=/app/ditechstyle/diserver/server/jre
+
+PATH=$JAVA_HOME/bin:$PATH:$HOME/bin
+
+export PATH
+export DI_USER="rajendra"
+export DI_PASSWORD="rajendra"
+export DI_HOME=/app/ditechstyle/diserver
+export PATH=$PATH:$DI_HOME/bin
+export PG_HOSTNAME=localhost
+export PG_PORT=9053
+export PG_DATABASE=direpdb
+export PG_USER=direpusr
+export PG_BACKUP_DIR=$DI_HOME/server/pgsql/backups
+export ORACLE_HOME=/app/ditechstyle/oracle/11.2/client64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ORACLE_HOME}/lib:/usr/nz/lib:/usr/lib:/lib
+export PATH=${ORACLE_HOME}/bin:$PATH
+export PATH="$PATH:/opt/mssql-tools/bin"
+
+
+export PG_PASSWORD=direpdb
+psql -h localhost -p 9053 -U direpusr -w -d direpdb -Atc
+
+/app/ditechstyle
+ls -ltra 
+
+will display  with hidden files also
+
+.bash_profile
+
+this will be the bash profile
+
+here 
+the below are the details we can pass 

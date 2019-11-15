@@ -1,0 +1,69 @@
+in order to execute the job through dicmd connect to server not the agent.
+Beta controller/server  details
+dibeta	
+dbVuFAMR3g
+
+
+
+
+dicmd execute [-u userName -w userPassword] -c start|abort|stop|rerun|restartfromfailure -p ProjectName -l LayerName [-d [DataFlowName | DataStreamName] |-s JobFlowName] [-j jobName] [-f ParamName]
+
+execute 
+dicmd execute -u Administrator -w Administrator -c start -p Live_Class_Master -l Layer_1 -s Jf_file_to_hive
+
+with 2 dataflows in a single job:
+
+dicmd execute -u Administrator -w Administrator -c start -p Live_Class_Master -l Layer_1 -s Jf_file_to_hive -j df_file_to_hive_test
+
+
+dicmd execute -u Administrator -w Administrator -c start -p Live_Class_Master -l Layer_1 -s Jf_file_to_hive -j df_file_to_hive
+
+
+dicmd execute -u Administrator -w Administrator -c start -p Live_Class_Master -l Layer_1 -s Jf_file_to_hive -f /app/ditraining/diserver/app/source/temp.prm
+
+
+dicmd execute -u shobha -w P2wd_4321 -c start -p DEMO_TEST -l Ingestion -s jf_sample -f /app/dibeta/diserver/app/source/sample.prm
+
+-----------------------------------------------------------------------------------------------------
+
+login as: dibeta
+dibeta@172.40.8.160's password:
+Last login: Wed Oct 31 07:46:37 2018 from 172.40.4.82
+[dibeta@lpcdiapp4 ~]$ dicmd
+
+Help :
+
+Version          :  dicmd version
+
+Server Status    :  dicmd serverstatus
+
+Execution        :  dicmd execute [-u userName -w userPassword] -c start|abort|stop|rerun|restartfromfailure -p ProjectName -l LayerName [-d [DataFlowName | DataStreamName] |-s JobFlowName] [-j jobName] [-f ParamName]
+
+Compilation      :  dicmd compile [-u userName -w userPassword] -p ProjectName [-l LayerName] [-d [DataFlowName | DataStreamName]|-s JobFlowName]
+
+Export           :  dicmd export [-u userName -w userPassword] -p ProjectName [-l LayerName] [-o DOBJ|DATAPOINT|NSEQ|EXPR|UDF|DATASUBFLOW|DATAFLOW|DATASTREAM|JOBFLOW|SCHTASK|SCHCAL|SCHEMAIL|SCHFILE|SCHEDULER] [-t NZ|TD|OR|FF|PG|DB|HV|MS|BI|CO|SF|ED|GP|HQ|HD|JS|HB|XD|SP|TW|FB|SK|JM|KK|CS|SY|SS|TS|SN|MY|BQ|RT|AV] [-c DataPointName] [-g GroupName] [-n ObjectName] -f OutJSONFileName
+
+ExportOptions    :  dicmd genoptions [-u userName -w userPassword] -p ProjectName[should be non reusable target project name where you want to import] [-g GlobalProjectName] -i InJSONFileName -f OutJSONFileName
+
+Import           :  dicmd import [-u userName -w userPassword] -p ProjectName [-l LayerName] -f InJSONFileName [-o GenoptionsJson] [-g GlobalProjectName] [-h GlobalLayerName]
+
+Refresh          :  dicmd refresh [-u userName -w userPassword] -c mvw
+
+CleanUp          :  dicmd cleanup [-u userName -w userPassword] -c tform|local|applogs|opsruns|srvlogs|stage [-p ProjectNm] [-n days]
+
+Scheduler        :  dicmd scheduler [-u userName -w userPassword] -c pause|resume [-p ProjectName -t task|group]
+
+JobStatus        :  dicmd status [-u userName -w userPassword] [-c ACTIVE|FAILED|SUCCESS|ABORT|STOP|ALL] -p ProjectName [-l LayerName] [-d DataFlowName|-s JobFlowName]
+
+Passwd           :  dicmd passwd -e TextToEncrypt
+
+ConvertJson      :  dicmd convertjson [-u userName -w userPassword] -i injson -s fromDbCd -d toDbCd [-m mapNativeDbTypeCd] [-o outfile]
+Hint: -s,-d,-m value codes NZ|TD|OR|FF|PG|DB|HV|MS|BI|CO|SF|ED|GP|HQ|HD|JS|HB|XD|SP|TW|FB|SK|JM|KK|CS|SY|SS|TS|SN|MY|BQ|RT|AV
+
+Generate RSA/PGP/AES Keys       : dicmd genkey rsa|pgp|aes
+
+Encrypt AES key/Text    : dicmd encrypt [-f diaes.key -k publickey]
+
+Export monitor log      :  dicmd exportlog [-u userName -w userPassword] -o ERROR|WARN|INFO|DEBUG|TRACE|ALL -p ProjectName -l LayerName -r runId [-d DataFlowName|-s JobFlowName [-j JobName]] [-t UnitName] -f OutFileName
+
+Agent status    :  dicmd agentstatus [-u userName -w userPassword] [-a AgentName]

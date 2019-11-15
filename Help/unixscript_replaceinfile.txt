@@ -1,0 +1,40 @@
+#!/bin/sh
+id_do=$1
+source = $2
+target = $3
+native_pf = $4
+sed -i -e s/id/$id_do/ -e s/source_table/$source/ -e s/target_table/$target/ -e s/native/$native_pf/ /app/dibeta/diserver/test_yash.txt
+
+
+
+test_yash.txt
+--------------
+"num" : id
+"src_tables_nm" : "source_table"
+"tgt_tables_nm" : "target_table"
+"natv_nm" : "native"
+
+to remove spaces :
+----------------
+> text="some text with spaces"
+> echo "${text// /}"
+sometextwithspaces
+---------------------------------------
+
+src_table_nm=`echo "${src_table_nm1// /}"`
+
+`echo "$src_table_nm1"|sed -e 's/\n/'`
+
+
+src_table_nm=`echo "|$src_table_nm1|"|tr '\n' ' '`
+
+
+-------------------------------------------------------------
+input=$1
+value=`cat $input`
+file_data=`echo "$value"|head -1|awk '{print $3}'|cut -f1 -d '.'`
+echo "$file_data"
+db_data=`echo "$value"|head -1|awk '{print $3}'|cut -f2 -d '.'`
+echo "$db_data"
+
+

@@ -1,0 +1,12 @@
+DIR=$DI_HOME/app/scripts/$1
+if [[ ! -d "$DIR" ]]; 
+then
+if [[ ! -L $DIR ]]
+then 
+echo "Directory doesn't exist. Creating now"
+mkdir $DIR
+fi
+else
+echo "Directory deleted"
+rm -rf "$DIR"
+fi

@@ -1,0 +1,49 @@
+1.Dimension tables are used to describe dimensions;they contain dimension keys, values and attributes. In general dimension tables holds the description / textual information about facts stored in fact tables. The fact tables contains foreign keys referring to the dimension tables.
+
+2.The fact table mainly consists of business facts and foreign keys that refer to primary keys in the dimension tables. A dimension table consists mainly of descriptive attributes that are textual fields. A dimension table contains a surrogate key, natural key, and a set of attributes
+
+3.fact table always have the numbers  ex:(customer key,customerid,order id)
+dimension table will have the description ex:(customer_name,cust_address)
+key cols = no.of fact tbles 
+
+4.The SCD Type 1 method is used when there is no need to store historical data in the Dimension table. The SCD type 1 method overwrites the old data with the new data in the dimension table. The process involved in the implementation of SCD Type 1 
+5.A Slowly Changing Dimension (SCD) is a dimension that stores and manages both current and historical data over time in a data warehouse. It is considered and implemented as one of the most critical ETL tasks in tracking the history of dimension records.
+
+ 
+
+A Type 2 SCD retains the full history of values. When the value of a chosen attribute changes, the current record is closed. A new record is created with the changed data values and this new record becomes the current record. Each record contains the effective date and expiration date to identify the time period between which the record was active.
+In this Type 2 SCD, the old values will not be replaced, but a new row containing the new values will be added to the customer table. So at any point of time, the difference between the old values and new values can be retrieved and easily be compared. This would be very useful for reporting.
+
+Ex:for scd type 2 
+Cust_Key	Cust_No	 Name	    City	State Country Phone_No	 Start_Date	 End_Dat
+02	          1002	 Micheal	NewYork	 NY	    USA	  9848022338 01-JAN-1990 14-MAR-2014
+03	          1002	 Micheal Greensboro	 NC	    USA	  9848022338 15-Mar-2014 31-DEC-9999
+
+In Type 3 Slowly Changing Dimension, there will be two columns to indicate the particular attribute of interest, one indicating the original value, and one indicating the current value. There will also be a column that indicates when the current value becomes active.
+In our example, recall we originally have the following table:
+
+Customer Key  Name    State
+1001         Williams  New York
+
+To accommodate Type 3 Slowly Changing Dimension, we will now have the following columns:
+Customer Key ,Name ,Original State ,Current State , Effective Date
+After Williams moved from New York to Los Angeles, the original information gets updated, and we have the following table (assuming the effective date of change is February 20, 2010):
+
+Customer Key Name Original State Current State Effective Date
+1001     Williams    New York     Los Angeles  20-FEB-2010
+
+Advantages type 3:
+This does not increase the size of the table, since new information is updated.
+This allows us to keep some part of history.
+Disadvantages type 3:
+Type 3 will not be able to keep all history where an attribute is changed more than once. For example, if Williams later moves to Texas on December 15, 2003, the Los Angeles information will be lost.
+When to use Type 3:
+Type III slowly changing dimension should only be used when it is necessary for the data warehouse to track historical changes, and when such changes will only occur for a finite number of time.
+------------------------------------------------------------------------------------
+Impala is an open source massively parallel processing query engine on top of clustered systems like Apache Hadoop. It was created based on Google's Dremel paper. It is an interactive SQL like query engine that runs on top of Hadoop Distributed File System (HDFS). Impala uses HDFS as its underlying.
+
+Cloudera Impala is an SQL engine for processing the data stored in HBase and HDFS. Impala uses Hive metastore and can query the Hive tables directly. Unlike Hive, Impala does not translate the queries into MapReduce jobs but executes them natively.
+adv:
+Impala gives parallel processing database technology on top of Hadoop eco-system. It allows users to perform low latency queries interactively. 
+Hive MapReduce job will take some minimum time in launching and processing queries where as impala gives results in seconds.
+Impala being real-time query engine best suited for analytics and for data scientists to perform analytics on data stored in Hadoop File System.

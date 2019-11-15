@@ -1,0 +1,82 @@
+command used for your reference for something else similar
+sed -i '201,400 s/2015-07-16/2015-06-03/g' /home/direp_sprint/diserver/app/source/PS_CEL_RADIUS_CDR.dat
+sed -i '401,600 s/2015-07-16/2014-03-31/g' /home/direp_sprint/diserver/app/source/PS_CEL_RADIUS_CDR.dat
+sed -i '601,$ s/2015-07-16/2014-12-31/g' /home/direp_sprint/diserver/app/source/PS_CEL_RADIUS_CDR.dat
+
+extract tar file:
+
+$tar -xvf file_name.tar
+
+tar -xvf C_SUB_HOTLN_20160202045908.tar
+
+tar -zcvf diserver_2077.tar.gz diserver/ --exclude='*.log' --exclude='*.gz' --exclude='SLPARAM*'
+
+scp diserver_2077.tar.gz direp_mfs_3_6@172.40.9.205:~/
+
+
+scp test.sh direp_qa@172.40.9.113:~/tmp/files
+
+ssh root@server1.cyberciti.biz /root/scripts/backup.sh
+
+ssh di@172.40.9.114 date
+
+scp plslg826:/tmp/file /tmp/
+
+tar -zxvf 
+
+unzip file:
+
+gunzip file_name.gz
+
+remove newline and carrage return:
+
+sed -i 's/\r//g' AMS_IPDR_FRAUD_2000228163_20151122150905_bkp.DAT
+sed -i 's/\n//g' AMS_IPDR_FRAUD_2000228163_20151122150905_bkp.DAT
+
+n string forward search
+shift+n string backward search
+
+
+removing rows from file:
+
+sed '11,$d' file_name1>new_file
+
+*/1 * * * *  /app/di/diserver/app/scripts/Controler_Agentstatus_new.sh
+
+Password less SSH set up :
+
+ssh-keygen
+cd .ssh/
+cat id_rsa.pub >> authorized_keys
+
+ For other nodes, copy the content of master node's id_rsa.pub to other nodes
+ 
+  on master node:
+                cd ~/.ssh   
+                cat id_rsa.pub
+                <copy the content>
+  on slave nodes: 
+                 cd ~/.ssh
+                 vim authorized_keys
+                 <paste the content of master id_rsa.pub>
+
+
+chmod 700 ~/.ssh
+
+chmod 600 ~/.ssh/authorized_keys 
+
+
+check linux version:
+
+[direp_sit@lphdiappqa ~]$ cat /etc/*-release
+CentOS release 6.9 (Final)
+LSB_VERSION=base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0-noarch:printing-4.0-amd64:printing-4.0-noarch
+CentOS release 6.9 (Final)
+CentOS release 6.9 (Final)
+[direp_sit@lphdiappqa ~]$ lsb_release -a
+LSB Version:    :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0-noarch:printing-4.0-amd64:printing-4.0-noarch
+Distributor ID: CentOS
+Description:    CentOS release 6.9 (Final)
+Release:        6.9
+Codename:       Final
+[direp_sit@lphdiappqa ~]$

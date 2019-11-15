@@ -1,0 +1,37 @@
+place the jar file in any drive in the system
+
+open the cmd and and go to the directory where we have placed he jar fil.(type i: and press enter to go to the i drive)
+
+copy the avro file where it is created and place it in desktop and run the below command to convert the avro to json file and it will display the content in cmd ....
+
+ex:
+java -jar avro-tools-1.8.2.jar tojson C:\Users\E150207.CORP\Desktop\Avro_ACCOUNT_20181004.avro
+my files:
+java -jar avro-tools-1.8.2.jar tojson C:\Users\E180202\Desktop\TEST_SAMPLE.avro
+java -jar avro-tools-1.8.2.jar tojson C:\Users\E180202\Desktop\PRODUCT.avro
+java -jar avro-tools-1.8.2.jar tojson C:\Users\E180202\Desktop\PRODUCT_TYPE.avro
+
+java -jar avro-tools-1.8.2.jar tojson C:\Users\E180202\Desktop\PRODUCT.avro
+
+java -jar avro-tools-1.8.2.jar tojson C:\Users\E180202\Desktop\ALL_DATA_TYPES_SAMPLE.avro
+
+java -jar avro-tools-1.8.2.jar tojson C:\Users\E180202\Desktop\ALL_DATA_TYPES_123.avro
+
+{"PRODUCT_CD":"CHK","DATE_OFFERED":"2000-01-01","DATE_RETIRED":"NULL","NAME":"checking account","PRODUCT_TYPE_CD":"ACCOUNT"}
+{"PRODUCT_CD":"SAV","DATE_OFFERED":"2000-01-01","DATE_RETIRED":"NULL","NAME":"savings account","PRODUCT_TYPE_CD":"ACCOUNT"}
+{"PRODUCT_CD":"MM","DATE_OFFERED":"2000-01-01","DATE_RETIRED":"NULL","NAME":"money market account","PRODUCT_TYPE_CD":"ACCOUNT"}
+{"PRODUCT_CD":"CD","DATE_OFFERED":"2000-01-01","DATE_RETIRED":"NULL","NAME":"certificate of deposit","PRODUCT_TYPE_CD":"ACCOUNT"}
+{"PRODUCT_CD":"MRT","DATE_OFFERED":"2000-01-01","DATE_RETIRED":"NULL","NAME":"home mortgage","PRODUCT_TYPE_CD":"LOAN"}
+{"PRODUCT_CD":"AUT","DATE_OFFERED":"2000-01-01","DATE_RETIRED":"NULL","NAME":"auto loan","PRODUCT_TYPE_CD":"LOAN"}
+{"PRODUCT_CD":"BUS","DATE_OFFERED":"2000-01-01","DATE_RETIRED":"NULL","NAME":"business line of credit","PRODUCT_TYPE_CD":"LOAN"}
+{"PRODUCT_CD":"SBL","DATE_OFFERED":"2000-01-01","DATE_RETIRED":"NULL","NAME":"small business loan","PRODUCT_TYPE_CD":"LOAN"}
+
+
+{"PRODUCT_TYPE_CD":"ACCOUNT","NAME":"Customer Accounts"}
+{"PRODUCT_TYPE_CD":"LOAN","NAME":"Individual and Business Loans"}
+{"PRODUCT_TYPE_CD":"INSURANCE","NAME":"Insurance Offerings"}
+
+java -jar avro-tools-1.8.2.jar tojson C:\Users\E180202\Desktop\ALL_DATA_TYPES_NEW.avro
+
+
+{"C_VARCHAR2_20":"Varchar20","C_VARCHAR2_4000":"Varchar4000","C_NVARCHAR2_20":"NVARCHAR2_20","C_NVARCHAR2_2000":"NVARCHAR2_2000","C_NUMBER":1.23456792E8,"C_NUMBER_38_0":9.8765434E8,"C_NUMBER_38_12":1.23456792E8,"C_NUMBER_38_38":0.012345679,"C_FLOAT":1.23456792E8,"C_FLOAT_10":0.01235,"C_FLOAT_126":1.23456792E8,"C_LONG":123456789,"C_DATE":"1900-12-31","C_BINARY_FLOAT":3.40282E38,"C_BINARY_DOUBLE":1.7976931E30,"C_TIMESTAMP":"1900-12-31 23:23:23.232000","C_TIMESTAMP_6":"1900-12-31 23:23:23.232323","C_TIMESTAMP_9":"1900-12-31 23:23:23.232323","C_TIMESTAMP_TZ":"1900-1","C_TIMESTAMP_LTZ":"2018-0","C_RAW":"[B@6d01e53b","C_CHAR_1":"C","C_CHAR_20":"CHAR_2000           ","C_NCHAR_10":"NCHAR_1000","C_CLOB":"com.ibm.db2.jcc.am.ne@587a4fd2","C_NCLOB":"com.ibm.db2.jcc.am.ne@5b25a764","C_BLOB":"com.ibm.db2.jcc.am.ke@1eda123b"}

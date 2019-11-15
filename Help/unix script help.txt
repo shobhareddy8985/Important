@@ -1,0 +1,264 @@
+file content in to a single line with space :
+---------------------------------------------
+cat $DI_HOME/app/source/mail.txt | awk '{print}' ORS=' '
+
+mailx command to send multiple attchment in body:
+--------------------------------------------------
+echo $body|mailx -s "SCHEDULER_STATUS" -a $DI_HOME/app/source/scheduler_status_disabled.txt -a $DI_HOME/app/source/scheduler_status_paused.txt -a $DI_HOME/app/source/scheduler_status_not_scheduled.txt -a $DI_HOME/app/source/scheduler_status_not_scheduled.txt shobha.reddy@diyotta.com
+
+add headter to file:
+------------------------
+if the file have content in afile and add the header:
+sed 1i"projectName|taskName|parent_TaskName" $DI_HOME/app/source/scheduler_status_not_scheduled.txt > $DI_HOME/app/source/scheduler_status_not_scheduled_bkp.txt
+
+if the file does n't have content and add the header:
+echo -e "task_nm|run_status|run_log" > /app/ditechstyle/diserver/app/source/Sch_Failuredata_file.dat && cat /app/ditechstyle/diserver/app/source/Sch_max_failurejob.dat >> /app/ditechstyle/diserver/app/source/Sch_Failuredata_file.dat 
+
+
+
+Getting  a mail with file content as body:
+-------------------------------------------
+ mailx -s "test" shobha.reddy@diyotta.com </app/ditechstyle/diserver/a.txt
+---------------------------------------------------------------------------------------------------------
+to compile the script file open file using vim/vi editor press esc and type: and below command and then press esc: then put :wq
+
+:set fileformat=unix
+---------------------------------------------------------
+remove duplicate lines in a file  one by one not adjacent
+sort -u test.txt
+
+----------------------------------------------
+assign a file content to a variable
+
+filename = `cat /app/ditechstyle/diserver/app/test.csv`
+echo $filename
+
+unix shell script :
+-------------------
+to know the shell type bash or korn 
+[dibeta@lpcdiapp4 source]$ cd ~
+[dibeta@lpcdiapp4 ~]$ echo $SHELL
+/bin/bash
+
+-------------------------------
+The sign #! is called she-bang and is written at top of the script. It passes instruction to program /bin/sh.
+
+To run your script in a certain shell (shell should be supported by your system), start your script with #! followed by the shell name.
+
+Example:
+
+#!/bin/bash  
+echo Hello World  
+#!/bin/ksh  
+echo Hello World  
+
+Steps to write and execute a script:
+--------------------------------------
+Open the terminal. Go to the directory where you want to create your script.
+Create a file with .sh extension.
+Write the script in the file using an editor.
+Make the script executable with command chmod +x <fileName>.
+Run the script using ./<fileName>.
+
+Shell Script Parameters:
+------------------------
+A bash shell script have parameters. These parameters start from $1 to $9.
+When we pass arguments into the command line interface, a positional parameter is assigned to these arguments through the shell.
+The first argument is assigned as $1, second argument is assigned as $2 and so on...
+If there are more than 9 arguments, then tenth or onwards arguments can't be assigned as $10 or $11.
+You have to either process or save the $1 parameter, then with the help of shift command drop parameter 1 and move all other arguments down by one. It will make $10 as $9, $9 as $8 and so on.
+
+declaring a variable:
+---------------------
+variable_name=variable_value
+ex:x=10
+
+The above example defines the variable X and assigns the value 10 to it. Variables of this type are called scalar variables. A scalar variable can hold only one value at a time.
+
+Shell enables you to store any value you want in a variable. For example −
+
+VAR1="Zara Ali"
+VAR2=100
+
+Quotes:
+------
+Following are the three types of quotes available in Shell scripting.
+
+1)Double Quotes (“) : Anything inside double quotes will be string except \ and $. See example
+
+#Syntax to define string variable double quotes
+str="Shell scripting article"
+echo $str
+
+#Using \ to escape characters
+-----------------------------
+str="Shell scripting \"article\""
+echo $str
+#output
+Shell scripting "article"
+
+#using variable in a string
+----------------------------
+user="ABC"
+str="Shell scripting \"article\" by $user"
+echo $str
+#output
+Shell scripting "article" by ABC
+
+2)Single quotes (‘) : Anything inside single quotes will be a string. See example:
+
+#Syntax to define string variable using single quotes
+str='Shell scripting article'
+echo $str
+#output
+Shell scripting article
+#Trying \ to escape characters in single quotes
+str='Shell scripting \"article\"'
+echo $str
+#output
+Shell scripting \"article\"
+
+3)Left Quotes (`): Anything enclosed in left quotes will be treated as an executable command. See examples
+
+#Syntax to define a string variable
+str='Current date is `date`'
+echo $str
+#output
+Current date is Wed Apr 4 10:57:12 +04 2018
+
+Accessing Values:
+-----------------
+To access the value stored in a variable, prefix its name with the dollar sign ($)
+
+NAME="Zara Ali"
+echo $NAME
+
+
+Shell provides a way to mark variables as read-only by using the read-only command. After a variable is marked read-only, its value cannot be changed.
+
+NAME="Zara Ali"
+readonly NAME
+NAME="Qadiri"
+o/p:
+$./sample.sh
+./sample.sh: line 3: NAME: readonly variable
+
+
+Unsetting Variables:
+-------------------
+Unsetting or deleting a variable directs the shell to remove the variable from the list of variables that it tracks. Once you unset a variable, you cannot access the stored value in the variable.
+
+
+NAME1="Zara"
+unset NAME1
+echo $NAME1
+
+The above example does not print anything. You cannot use the unset command to unset variables that are marked readonly.
+
+
+Command-Line Arguments:
+----------------------
+The command-line arguments $1, $2, $3, ...$9 are positional parameters, with $0 pointing to the actual command, program, shell script, or function and $1, $2, $3, ...$9 as the arguments to the command.
+
+$#---The number of arguments supplied to a script.
+$*---All the arguments are double quoted. If a script receives two arguments,
+$* is equivalent to $1 $2
+
+-----------------------------------------------------------
+Special Parameters $* and $@:
+-----------------------------
+There are special parameters that allow accessing all the command-line arguments at once. $* and $@ both will act the same unless they are enclosed in double quotes, "".
+
+Both the parameters specify the command-line arguments. However, the "$*" special parameter takes the entire list as one argument with spaces between and the "$@" special parameter takes the entire list and separates it into separate arguments.
+
+script to run the jobs under the project DEMO_TEST and layer ingestion:
+-----------------------------------------------------------------------
+for TOKEN in $*
+do
+JF="jf_$TOKEN" (without quotes also same result)
+dicmd execute -u shobha -w P2wd_4321 -c start  -p DEMO_TEST -l ingestion -s $JF
+done
+
+run command:-./test2.sh sample sample_1 (passing jobnames as parameters)
+
+o/p:ran the  one after the other 
+
+------------------------------------------------------------------------------------
+Defining Array Values:
+---------------------
+array_name[index]=value
+
+NAME[0]="Zara"
+NAME[1]="Qadir"
+NAME[2]="Mahnaz"
+NAME[3]="Ayan"
+NAME[4]="Daisy"
+
+Accessing Array Values:
+----------------------
+After you have set any array variable, you access it as follows 
+${array_name[index]}
+
+array_test.sh
+-----------------
+NAME[0]="Zara"
+NAME[1]="Qadir"
+NAME[2]="Mahnaz"
+NAME[3]="Ayan"
+NAME[4]="Daisy"
+echo "First Index: ${NAME[0]}"
+echo "Second Index: ${NAME[1]}"
+echo "all values using star : ${NAME[*]}"
+echo "all values using @ : ${NAME[@]}"
+
+o/p:
+First Index: Zara
+Second Index: Qadir
+all values using star : Zara Qadir Mahnaz Ayan Daisy
+all values using @ : Zara Qadir Mahnaz Ayan Daisy
+
+----------------------------------------------------------
+addition_2.sh
+-------------
+
+n=$1
+sum=0
+for i in `seq 1 $n` ;
+ do
+    ## redefine variable 'sum' after each iteration of for-loop
+    sum=`expr $sum + $i`
+done
+
+echo $sum
+
+run command:
+[dibeta@lpcdiapp4 source]$ ./addition_2.sh 6
+
+o/p:21
+----------------------------------------------------------------------
+Conditions [if/else]:
+--------------------
+Shell scripts use fairly standard syntax for if statements. The conditional statement is executed using either the test command or the [ command.
+
+In its most basic form an if statement is:
+
+# Syntax of simple if then statement
+if [ 35 -gt 0 ]
+then
+    echo "Greater"
+fi
+# output
+Greater
+
+# Syntax of simple if then else-if statement
+if [ 35 -gt 55 ]
+then
+ echo "Greater"
+elif [ 35 -gt 45 ]
+then
+ echo "Greater"
+else
+ echo "Lesser"
+fi
+# Output
+Lesser

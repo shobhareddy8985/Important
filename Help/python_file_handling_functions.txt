@@ -1,0 +1,45 @@
+#To create a new file in Python, use the open() method, with one of the following parameters:
+#"x" - Create - will create a file, returns an error if the file exist
+#"a" - Append - will create a file if the specified file does not exist
+#"w" - Write - will create a file if the specified file does not exist
+import os
+
+k = open("file1.txt","a") #create a file file1 if it is not exist.
+k = open("file1.txt","r")  # read mode will read the data from file.
+print(k.read())   #to display the file content as output
+
+f = open("file.txt","r") # to open a file which is existing in a read mode
+print(f.read())   # display the file contents.
+
+# to read the first three letters in  a file
+f = open("file.txt","r")
+print(f.read(10))
+
+print("my first line is")
+f = open("file.txt","r")
+print(f.readline())  # to read the first line use readline() method
+
+print("for loop to read the file content line by line \n ")
+f = open("file.txt","r")
+for x in f:
+    print(x)
+
+# To delete a file, you must import the OS module, and run its os.remove() function:
+print("file handling functions")
+j = open("file2.txt","a")
+print("file created and appending")
+j.write("hello i am newly created file content")
+j = open("file2.txt","r")
+print(j.read())
+#close the file which is in read mode before delete
+j.close()
+os.remove("file2.txt")
+print("file2 is deleted")
+
+# join() will add the delimeter  which we have mentioned after every character.
+
+print(":".join("Python"))
+
+name="PYTHON AT GURU99"
+print("-".join(name))
+

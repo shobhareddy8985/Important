@@ -1,0 +1,1553 @@
+1)Change (to another) directory:
+-------------------------------
+ $cd ..
+  or
+ $cd app/source
+2)make a diretory:
+-----------------------
+ $mkdir sample(folder name)
+3)List files, directories or their information:
+-----------------------------------------
+ls
+  OR
+ls hw1 (hwl either a file name or the folder)
+  OR
+ls -ltr (or) ls -l
+
+wildcard search for a file:
+-------------------------
+ls ab*.txt
+
+o/p:
+
+abcd.txt  abc.txt
+
+will display the file name start with ab.
+
+search a file  in the subfolders also(myzip.zip)
+
+find -name myzip.zip(one_file)
+./shobha/myzip.zip
+
+find -name *.sh(multiple files)
+./prashanth/seal_file/test.sh
+./test.sh
+./shekhar/shek/test.sh
+./demo_test/test.sh
+./shobha/test.sh
+
+4)To open the file data first two lines.
+----------------------------------------
+syntax:cat myfile | head -2
+$cat TGT_TABL_EMP.dat | head -2 (first 2 lines)
+
+to print last line of the file:
+-------------------------------
+tail will print the last line of the head  command.
+
+file conatains:
+1  unix is great os.unix opensource. unix is free os.
+2  learn operating system.
+3  unix  which one you choose.
+4  unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+
+
+cat samplezip.txt | head -4 | tail -1
+o/p:
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+
+cat myfile | tail -5 (last 5 lines)
+
+To display only the 3 rd line.(display specific line use head with tail)
+cat abc.txt|head -4|tail -1
+
+open the file contents with line numbers:
+----------------------------------------
+cat abc.txt -b
+
+1  unix is great os.unix opensource. unix is free os.
+2  learn operating system.
+3  unix  which one you choose.
+4  unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+
+5)To now the present path:
+-----------------------------
+$pwd(present working directory)
+
+6)To create a new file in the editor itself and place the code and save the file.
+----------------------------------------------------------------------------------
+$pwd (go to the place where you want to create file using cd command)
+1)$vi abc.txt(abc.txt is the new file name)then press enter
+2)press i symbol to enter the characters from keyboard or copy the data and paste it here)
+3)press esc button  after the data insertion is completed
+4)type :wq (W-save q-quit from the editor) with out save press :q!
+5)if you wan to see the data file use ls -ltr command to view the files in the folder
+6)to open the file which is create then use cat abc.txt and press enter
+
+There are many other ways to move within a file in vi. Remember that you must be in command mode (press Esc twice)
+
+shift+0 or | Positions cursor at beginning of line.
+
+shift+$----cursor will move to end of last line ina file.
+dd------delete the entire line at the curson position in a file.
+
+w----next word from current cursor position (forward) 
+b---previous word (backward)
+
+7)to copy the file in the same folder.
+ 
+ syntax:cp source_file destination_file 
+
+(abc.txt is the source file)(abcd.txt is the  new destination file which does not created)abcd  will create automatically.
+
+$cp abc.txt abcd.txt
+
+cp abc.txt /app/dibeta_agnt/diagent/app/source/test/test1   
+
+abc.txt is the source file 
+/app/dibeta_agnt/diagent/app/source/test/test1 is the destination folder path
+
+8) Move (or rename) a file:
+
+move will remove the file from the source  place and place it in destination location (cp will copy the souce file into the destination location with out deleting the source file);
+
+[dibeta_agnt@lpcdiapp4 test1]$ mv test.csv /app/dibeta_agnt/diagent/app/source/test
+
+test.csv is delete  from the current location and placed in /app/dibeta_agnt/diagent/app/source/test location.
+
+to change the file  extension:
+
+mv test.csv test.sql
+
+.csv file converted to .sql
+
+
+9)A relative pathname is just a path that starts from your current directory, and thus, doesn't start with a slash (/) character.
+
+Any example relative path is:
+app/source
+
+absolute pathname:
+A absolute pathname is just a path that starts at the root directory, i.e., begins with the slash (/) character.
+
+/app/source/
+
+10)to change the data in a file:
+
+sed -i -e 's/700000001321811/70000000/g' google_doubleclick_campaign_20180828133933.258.csv
+old value 700000001321811 to new 70000000 
+
+or use vi  command
+change the data and save,quit.
+
+11)To rename the folder name:
+
+mv old-name new-name
+
+mv shobha shobhatest
+
+12)to change the permissions to the folder or the file.
+read (4), write (2), and execute (1)
+
+Read by owner only
+$ chmod 400 sample.txt 
+Read by group only
+
+$ chmod 040 sample.txt 
+Read by anyone
+
+$ chmod 004 sample.txt 
+Write by owner only
+
+$ chmod 200 sample.txt 
+Write by group only
+
+$ chmod 020 sample.txt 
+Write by anyone
+
+$ chmod 002 sample.txt 
+Execute by owner only
+
+$ chmod 100 sample.txt 
+Execute by group only
+
+$ chmod 010 sample.txt 
+Execute by anyone
+
+$ chmod 001 sample.txt 
+Allow read permission to owner and group and anyone.
+$ chmod 444 sample.txt
+Allow everyone to read, write, and execute file.
+
+$ chmod 777 sample.txt
+
+to give read,write to user
+chmod 006 samlple.txt (4-read 2-write)
+
+12)remove a file
+-----------------
+rm abc.txt
+
+remove a direcoty which have a file
+------------------------------------
+rm -r test1
+(r- recursive delete /force delete test1 is the directory/folder name )
+
+13)to create a zero byte file
+-----------------------------
+touch a.txt
+(size is 0 bytes)
+
+14)Sed Command in Linux/Unix with examples
+---------------------------------------------
+SED command in UNIX is stands for stream editor and it can perform lot’s of function on file like, searching, find and replace, insertion or deletion. Though most common use of SED command in UNIX is for substitution or for find and replace. By using SED you can edit files even without opening it, which is much quicker way to find and replace something in file, than first opening that file in VI Editor and then changing it.
+
+Replacing or substituting string : 
+Sed command is mostly used to replace the text in a file. The below simple sed command replaces the word “unix” with “linux” in the file.
+
+By default, the sed command replaces the first occurrence of the pattern in each line and it won’t replace the second, third…occurrence in the line.
+
+$sed 's/unix/linux/' abc.txt  
+output:
+
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+linux  which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+
+replace only 2 nd  occurence  only in every line:
+$sed 's/unix/linux/2' abc.txt 
+
+unix is great os.linux opensource. unix is free os.
+learn operating system.
+unix  which one you choose.
+unix is easy to learn.linux is a multiuser os.Learn unix .unix is a powerful.
+
+
+replace all the  unix with linux occurences :
+
+$sed 's/unix/linux/g' abc.txt
+
+Replacing string on a specific line number : You can restrict the sed command to replace the string on a specific line number. An example is
+replaces the 4 th line first occurence.
+
+[dibeta_agnt@lpcdiapp4 test]$ sed '4 s/unix/linux/' abc.txt
+unix is great os.unix opensource. unix is free os.
+learn operating system.
+unix  which one you choose.
+linux is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+
+
+Duplicating the replaced line with /p flag : The /p print flag prints the replaced line twice on the terminal. If a line does not have the search pattern and is not replaced, then the /p prints that line only once.
+$sed 's/unix/linux/p' geekfile.txt
+Output:
+
+command to cut the piece of data and remove the space after the word in afile data which is stored in a variable:
+-----------------------------------------------------------------------------------------------------------------
+src_table_nm=`echo "$value"|head -1|awk '{print $3}'|cut -f2 -d '.'|sed s/[[:space:]]//g`
+
+command to read a file as input and store it into a variable:
+------------------------------------------------------------
+input=$1
+value=`cat $input`
+
+create a file.txt file with content
+create table demo_src.sample
+{
+id int,
+name varchar(50,8),
+}
+to pass the input this file to scrpit:
+-------------------------------------
+./test.sh file.txt  
+
+here $value-store the file contents.
+head -1  --->first file display 
+awk '{print $3}' --->3rd column content it will display 
+cut -f2 -d '.'   ----> cut the content which result the awk command and d is delimeter with .
+sed s/[[:space:]]//g  --->to remove the neline character/n or space after the cut command result..
+-------------------------------------------------------
+commands:
+
+grep ',' sql_file.txt|cut -f1 -d ' '
+
+sed -i 's/^[ \t]*//' sql_file.txt
+
+awk '{print $1}' sql_file.txt
+
+To delete a particular line in a file:(2 nd line)
+--------------------------------------------------
+[dibeta_agnt@lpcdiapp4 test]$ sed '2d' abc.txt
+unix is great os.unix opensource. unix is free os.
+unix  which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+
+To delete every  line in a file: (sed does not affect the actual file data it will remove the data and shown in the screen).
+-------------------------------
+sed 'd' abc.txt
+
+sed '$d'  last2.txt > last123.txt    --->delete last line in last2.txt file and place the result in  last123.txt new file
+
+sed '1d' abc.txt--->delete first line in a file.
+
+sed '1!d' last123.txt > last234.txt   ---->want to delete the lines except first line.
+
+sed '$d' last.txt < last.txt ---->delete the last line in last.txt file and place the result into the 
+last.txt file.
+
+sed '2d' samplezip.txt > removedfile.txt (2 nd line is deleted)
+
+want to delete line and store it in a new file then use > newfile.txt name.
+
+cat removedfile.txt 
+
+o/p:
+This will have only have 1,3,4 lines.
+
+delete 1 to 3 lines from a file:
+-------------------------------
+sed '1,3d' abc.txt
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful.
+
+To create invissible file :(use . before the folder name)
+--------------------------------------------------------
+mkdir .shobha
+
+
+To view the hidden folders 
+--------------------------
+$ ls -a
+o/p:
+.  ..  abcd.txt  abc.txt  .shobha  test1  test.sql
+
+ Single dot (.):- This represents current directory. 
+ Double dot (..):- This represents parent directory.
+
+
+Counting Words in a File:
+---------------------------
+ 
+$wc abc.txt
+
+6  31 182 abc.txt
+
+1. First Column: represents total number of lines in the file. 
+2. Second Column: represents total number of words in the file. 
+3. Third Column: represents total number of bytes in the file. This is actual size of the file.
+4. Fourth Column: represents file name.
+
+Home Directory: to go to home directory 
+----------------------------------------
+$cd ~
+$ pwd
+/app/dibeta_agnt (home directory)
+
+To create more than one directory at a time.
+---------------------------------------------
+[dibeta_agnt@lpcdiapp4 test]$ mkdir sample mine
+[dibeta_agnt@lpcdiapp4 test]$ ls -ltr
+total 24
+-rw-r--r--. 1 dibeta_agnt grp_dicloud   12 Nov  2 02:02 abcd.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud   12 Nov  2 02:06 test.sql
+drwxr-xr-x. 2 dibeta_agnt grp_dicloud 4096 Nov  2 02:34 test1
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  182 Nov  2 05:29 abc.txt
+drwxr-xr-x. 2 dibeta_agnt grp_dicloud 4096 Nov  2 06:03 sample
+drwxr-xr-x. 2 dibeta_agnt grp_dicloud 4096 Nov  2 06:03 mine
+To delete  more than one directory at a time.(with out any files init)
+---------------------------------------------
+[dibeta_agnt@lpcdiapp4 test]$ rmdir sample mine
+[dibeta_agnt@lpcdiapp4 test]$ ls -ltr
+total 16
+-rw-r--r--. 1 dibeta_agnt grp_dicloud   12 Nov  2 02:02 abcd.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud   12 Nov  2 02:06 test.sql
+drwxr-xr-x. 2 dibeta_agnt grp_dicloud 4096 Nov  2 02:34 test1
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  182 Nov  2 05:29 abc.txt
+
+
+delete a dictory which is having files init.
+-------------------------------------------
+rm -r directory_name
+
+rm -r a(a is the folder name)
+
+ex:
+[dibeta_agnt@lpcdiapp4 test1]$ mkdir a
+[dibeta_agnt@lpcdiapp4 test1]$ pwd
+/app/dibeta_agnt/diagent/app/source/test/test1
+[dibeta_agnt@lpcdiapp4 test1]$ mv a.txt /app/dibeta_agnt/diagent/app/source/test/test1/a
+[dibeta_agnt@lpcdiapp4 test1]$ ls -ltr
+total 52
+-rw-r--r--. 1 dibeta_agnt grp_dicloud   12 Nov  2 02:02 abcd.txt
+-rwxrwxrwx. 1 dibeta_agnt grp_dicloud  176 Nov  2 06:52 samplezip.txt
+-------r--. 1 dibeta_agnt grp_dicloud  176 Nov  2 06:52 abc.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  275 Nov  2 07:37 myfile.zip
+-rwxrwxrwx. 1 dibeta_agnt grp_dicloud  775 Nov  5 02:27 sample2.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  152 Nov  5 08:22 removedfile.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  175 Nov  5 08:31 removedlastline.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  174 Nov  5 08:38 last.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  174 Nov  5 08:39 last2.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  103 Nov  5 08:44 last123.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud   51 Nov  5 08:50 last234.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  954 Nov  6 00:19 lastfile.zip
+drwxr-xr-x. 2 dibeta_agnt grp_dicloud 4096 Nov  6 00:23 a
+[dibeta_agnt@lpcdiapp4 test1]$ cd a
+[dibeta_agnt@lpcdiapp4 a]$ ls -ltr
+total 0
+-rw-r--r--. 1 dibeta_agnt grp_dicloud 0 Nov  6 00:15 a.txt
+[dibeta_agnt@lpcdiapp4 a]$ rmdir a
+rmdir: failed to remove `a': No such file or directory
+[dibeta_agnt@lpcdiapp4 a]$ cd ..
+[dibeta_agnt@lpcdiapp4 test1]$ rmdir a
+rmdir: failed to remove `a': Directory not empty
+[dibeta_agnt@lpcdiapp4 test1]$ rm -r a
+[dibeta_agnt@lpcdiapp4 test1]$ ls -ltr
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  12 Nov  2 02:02 abcd.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud  51 Nov  5 08:50 last234.txt
+-rw-r--r--. 1 dibeta_agnt grp_dicloud 954 Nov  6 00:19 lastfile.zip
+
+-----------------------------------------
+to send a mail:
+
+$mail [-s subject] [-c cc-addr] [-b bcc-addr] to-addr 
+
+
+----------------------
+creating a soft link for the /app/techpreview/diserver/app/source folder  to /app/techpreview/diserver/app/shobha  folder.
+command:
+ln -s /app/techpreview/diserver/app/source /app/techpreview/diserver/app/shobha
+
+press enter 
+
+now  if u place any file in source folder(/app/techpreview/diserver/app/source) this file is also you can see in /app/techpreview/diserver/app/shobha .
+source  folder contains--->archieve folder
+shobha is also will have archieve folder after the soft path.
+
+to remove soft link
+
+rm /app/techpreview/diserver/app/shobha/archieve
+or 
+unlink /app/techpreview/diserver/app/shobha/archieve
+
+after the sft path location you should mention the folder existed  softlink symbol mandatory.
+-----------------------------------------------------------------------------------------------
+creating a zip file :
+-------------------
+$zip filename.zip file1.txt file2.txt file3.txt
+
+zip myzip.zip text1.txt text2.txt
+
+o/p:
+it will show the file names with compression percentage.
+
+to remove  any file from the zip file which is created just now
+
+$zip -d myfiles.zip file2.txt
+o/p:
+
+file2.txt is removed 
+
+to unzip the zip file:
+
+$unzip myfiles.zip
+it will have the files 
+------------------------
+
+The first way to manage your partition space is with the df (disk free) command. 
+The command df -k 
+
+print last 2 lines from a file.
+-------------------------------
+
+tail -2 sample2.txt  ----last 2 lines to display
+tail -1 sample2.txt -----last 1 line to display
+
+cat test12.txt -b | tail -1--->last line 
+ 
+head -2 text1.txt text2.txt
+
+ ==> text1.txt <==
+this is line 1 UNIX UNIX
+this is line 2 unix
+
+==> text2.txt <==
+this is line 1 hello
+this is line 2 Unix
+
+
+print the lines which are having the particular string:
+------------------------------------------------------
+grep 'causes' sample2.txt
+o/p:
+pecifying -r causes tail to print lines from the end of the file in reverse order. The default for -r is to print the entire file this way.
+Specifying -f causes tail not to quit at the end of the file, but rather to reread the file repeatedly (useful for watching a "growing" file such as a log file).Specifying -r causes .
+Specifying -f causes tail not to quit at the end of the file, but rather to reread the file repeatedly (useful for watching a "growing" file such as a log file).
+
+-----------------------------------------------------------
+exit command:
+------------
+cntl+c--to exit from the previous command in the middle.
+
+unix command to open the file and delete all the lines in afile.
+----------------------------------------------------------------
+$cat DEPARTMENT.dat | sed 'd'
+$cat DEPARTMENT.dat | sed 'd' >DEPARTMENT.dat (to reflect the change to the file use >filename)
+unix command  to remove the 1 to 3 lines and open the file:
+---------------------------------------------------------
+(to reflect the change to the file use >filename)
+$cat DEPARTMENT.dat | sed '1,3d'
+
+command to replace the first string with 2nd string(IT is replaced with IT dept)
+------------------------------------------------------------------------------
+cat DEPARTMENT.dat | sed 's/IT/IT dept/'
+command To search a particular string in afile:
+-----------------------------------------------
+$grep IT DEPARTMENT.dat
+command To search a particular string in afile irrespective of  lowercase or uppercase:
+---------------------------------------------------------------------------------------
+grep -i  It DEPARTMENT.dat
+
+command to search a string and delete from the result from the file:
+--------------------------------------------------------------------
+grep -i  It DEPARTMENT.dat | sed 'd' > DEPARTMENT.dat
+
+command to search a string and display with line number where it is present:
+---------------------------------------------------------------------------
+grep  -i -n  lo  DEPARTMENT.dat
+
+command to search a string and display with how many times that string is present in a file.
+-------------------------------------------------------------------------------------------
+grep  -i -c  lo  DEPARTMENT.dat
+o/p:1
+
+grep -ic unix tex*
+o/p:(filename-count)
+text1.txt:3
+text2.txt:3
+
+
+command to Show lines from file that DO NOT contain the search pattern:
+----------------------------------------------------------------------
+grep  -i -v  lo  DEPARTMENT.dat
+      (or)
+grep   -v  lo  DEPARTMENT.dat
+
+Search multiple files for a pattern :
+------------------------------------
+
+cat text1.txt
+cat text2.txt
+
+
+grep -i unix tex*
+o/p:
+text1.txt:this is line 1 UNIX UNIX
+text1.txt:this is line 2 unix
+text1.txt:this is line 3 Unix Unix
+text2.txt:this is line 2 Unix
+text2.txt:this is line 3 UNIX UNIX
+text2.txt:this is line 4 unix unix
+----------------------------------------------------
+command move the more than 1 file to someother path
+$mv file1 file2 destinationpath
+
+$ mv text1.txt text2.txt /app/dibeta/diserver/app/source/shobha
+------------------------------------------------------------------
+command to remove tab space in afile:
+sed -i 's/^[ \t]*//' abc.txt
+
+
+-------------------------------------------------------------------------
+command to display one particular data: 
+./test_data.sh abc.txt|head -4|tail -1|cut -f2 -d ' '|cut -f2 -d '('|cut -f1 -d ','
+
+Create table demo_src.account
+{
+id int,
+name varchar(50,8)
+}
+
+
+it will display the 
+
+head -4|tail -1   -->display 4th line 
+cut -f2 -d ' '    -->display varchar(50,8)
+cut -f2 -d '('   --->display 50,8)
+cut -f1 -d ','   -->display 50
+
+./test_data.sh abc.txt|head -4|tail -1|cut -f2 -d ' '|cut -f2 -d '('|cut -f2 -d ','|cut -f1 -d ')'
+o/p:
+display the  8 from this line name varchar(50,8)
+8
+-----------------------------------------------------------------------------------------------------------------
+sed -i 's/hello/hello_world/g' somefile.txt
+-i = edit the file “in-place” – sed will directly modify the file if it finds anything to replace
+s = substitute the following text
+hello = what you want to substitute
+hello_world = what you want to replace
+g = global, match all occurrences in the line
+
+
+string replace ($$DOBJ_OBJ_FILE_SRC,)with a file content  (DOBJ_OBJ_FILE_SOURCE_FINAL.json) and saved in the new file(df_orc_hive_test_template_final.json) with out replacing the original file.(df_orc_hive_test_template.json )
+
+sed -e '/$$DOBJ_OBJ_FILE_SRC,/{ 
+    s/$$DOBJ_OBJ_FILE_SRC,//g
+    r DOBJ_OBJ_FILE_SOURCE_FINAL.json
+}' df_orc_hive_test_template.json > df_orc_hive_test_template_final.json 
+
+
+sed -i '/$$DOBJ_OBJ_FILE_SRC_INST,/{  
+    s/$$DOBJ_OBJ_FILE_SRC_INST,//g
+    r DOBJ_OBJ_FILE_SOURCE_INST_FINAL.json
+}' df_orc_hive_test_template_final.json
+
+string replace ($$DOBJ_OBJ_FILE_SRC_INST,)with a file content  (DOBJ_OBJ_FILE_SOURCE_INST_FINAL.json) and saved in the new file which is created in the above file(replace multiple strings with file content  for multiple times)
+
+
+
+----------------------------
+
+echo "varchar(10,8),int(11,8)"|sed 's/.*(\(.*\))/\1/'  to get the data b/w paranthesis.
+o/p:
+11,8
+
+echo "varchar(10,8),int(11,8)"|sed 's/.*(\(.*\))/\1/'
+
+-----------------------------------------------------------------------
+to read the input and pass as input to another script.
+----------------------------------------------------
+input=$1
+sh a.sh $input > inupt_tbl.txt
+
+read the input(pass file name as parameter) and store in to a variable.
+----------------------------------------------------------------------
+input=$1
+value=`cat $input`
+
+to remove space in the file:
+---------------------------
+cat input_data.txt|sed s/[[:space:]]//g input_data.txt
+
+to read the file(a.txt is the input file for loop) line by line using while loop:
+----------------------------------------------------------------------------------
+while read -r line; (first line in afile)
+do
+---
+---
+done < a.txt 
+
+To display the content of  the file having create string (search for the keyword) and return the 3 rd space content.
+-------------------------------------------------------------------------------------------------------------------
+command:
+cat input_data.txt|grep -i "create"|awk '{print $3}'
+before :  cat input_data.txt
+-------                           
+create table demo_src.account	
+(
+id int,		
+name varchar(50),
+salary number(10,2)
+);
+create table demo_src.product
+(
+id int,
+name varchar(50),
+salary number(10,2)
+);
+
+after the cat input_data.txt|grep -i "create"|awk '{print $3}' command
+-----------------------------------------------------------------------
+demo_src.account
+demo_src.product
+
+get the data and store into a varaible.
+---------------------------------------
+file2=`echo "$line"|grep -i "create"|awk '{print $3}'`
+separate the data using delimeter .(cut -f1 -d '.')
+---------------------------------------------------
+cat input_data.txt|grep -i "create"|awk '{print $3}'|cut -f1 -d '.'
+o/p:
+demo_src
+demo_src
+
+cat input_data.txt|grep -i "create"|awk '{print $3}'|cut -f2 -d '.'
+o/p:
+account
+product
+to remove the ; and replace the ; with \n (new line):
+-----------------------------------------------------
+cat input_data.txt|tr ';' '\n'
+
+to revoe the comma at the last line and replace with empty
+cat input_data.txt|sed -i '$s/,$//' input_data.txt
+
+it will replace the last line , with empty in the file.
+
+sed command to replace string with the variable which is having file content.
+-----------------------------------------------------------------------------
+
+file you are replacing the content ---temp.json
+df_orc_hive_test_template.json----file you are searching for the pattern DOBJ_OBJ_FILE_SRC
+df_orc_hive_final_$src_table_nm.json----new file which will create without affecting original file(df_orc_hive_test_template.json)
+
+sed -e '/DOBJ_OBJ_FILE_SRC,/{ 
+    s/DOBJ_OBJ_FILE_SRC,//g
+    r temp.json
+}' df_orc_hive_test_template.json > df_orc_hive_final_$src_table_nm.json
+
+Replace the string with out affecting orinal and appending (>>)the  result to final table 
+(attr_inst_final_$src_table_nm.json)
+------------------------------------------------------------------------------------------
+echo "`sed -e s/DOBJ_SRC_INST_ATTR_NM/$var_column_name/ -e s/DOBJ_SRC_INST_ATTR_DATATYPE_ID/$var_attr_dtyp_id/ -e s/DOBJ_SRC_INST_ATTR_PREC/$var_prec_type/ -e s/DOBJ_SRC_INST_ATTR_SCALE/$var_scale_type/ -e s/DOBJ_SRC_INST_ATTR_ID/$var_attr_id/ /app/dibeta/diserver/app/source/shekhar/attr_source_inst.json`," >> attr_inst_final_$src_table_nm.json
+
+ex:2
+var_object_mapping=`cat DOBJ_OBJ_MAPPING_$src_table_nm.json`
+echo "$var_object_mapping" > temp.json
+
+sed -i '/DOBJ_OBJ_MAPPING_FILE,/{
+    s/DOBJ_OBJ_MAPPING_FILE,//g
+    r temp.json
+}' df_orc_hive_final_$src_table_nm.json
+-----------------------------------------------------------------------------------
+var_attr_dtyp_id=`if [ $var_data_type = "varchar" ]
+                          then 
+                            echo "1"
+                      elif [ $var_data_type = "int" ]
+                            then
+                             echo "2"
+                          else 
+                            echo "3" 
+                      fi`
+
+var_prec_type_value=`echo "$name"|cut -f2 -d ' '|grep "("|cut -d "(" -f2 |cut -d ")" -f1|cut -d "," -f1`
+var_prec_type=`if [ -z "$var_prec_type_value" ]  
+                      then 
+                            echo "0"
+                      else 
+                            echo "$var_prec_type_value" 
+                      fi`
+
+					  
+echo "create table demo_src.account(id int,name varchar(10,8))"|cut -f2 -d ' '|grep "("|cut -d "(" -f2 |cut -d ")" -f1|cut -d "," -f1
+sed 's/\([^0-9]\),/\1\n/g' yourfile
+
+to remove the [] brackets from a string:
+---------------------------------------
+echo "narrowPeak_SP1[FLAG]" | sed -e 's/\[\([a-zA-Z0-9]*\)\]/_\1/g'
+o/p:
+narrowPeak_SP1_FLAG
+
+to remove the [] brackets from a string:
+-------------------------------------
+echo "[123]" | sed 's/[][]//g'
+o/p:123
+
+commands:
+---------
+echo "account(id int,name varchar(10,8))"|cut -f3 -d ' '|grep "("|cut -d "(" -f2 |cut -d ")" -f1
+10,8
+
+echo "account(id int,name varchar(10,8))"|cut -f3 -d ' '|grep "("|cut -d "(" -f2 |cut -d ")" -f1|cut -d "," -f1
+o/p:
+10
+
+echo "account(id int,name varchar(10,8))"|cut -f3 -d ' '|grep "("|cut -d "(" -f2 |cut -d ")" -f1|cut -d "," -f2
+o/p:
+8
+
+replace the data in the square brackets :
+----------------------------------------
+echo "0002  zz 43242 [replace this text] name" | sed '/^0002/s/\[.*\]/string/'
+
+replace every space with new line in a file:
+-------------------------------------------
+sed -e 's/  */\n/g' input_data.txt
+(or)
+echo "this is due"|sed -e 's/  */\n/g'
+(or) 
+echo "this is due"|sed -e 's/ /\n/g'
+o/p:
+this
+is
+due
+
+echo "this is due"|sed -e 's/ */\n/g'
+o/p:
+t
+h
+i
+s
+i
+s
+d
+u
+e
+
+echo "this is due"|sed -e 's/h/H/g' -e 's/t/T/g'
+o/p:
+THis is due
+
+remove tab space in afile :
+--------------------------
+cat a.txt|sed 's/^[ \t]*//'
+
+remove tabspace and place everything in asingle line:
+----------------------------------------------------
+cat a.txt|tr '\n' ' '
+
+change entire file code into a single line:
+-------------------------------------------
+cat a.txt|sed 's/^[ \t]*//'|tr '\n' ' '>abc.txt
+
+o/p:
+
+create table demo_src.test ( id int, name varchar(50), salary number(10,2) ); create table demo_src.test_1 ( id int, salary decimal(10,2) ); create table demo_src.test_2 ( id int, bonus decimal(10,2) );
+-------------------------------
+Old_IFS=$IFS
+IFS=$'\n'
+
+file=`cat $1` > /dev/null
+
+for line in $file
+do
+
+    temp=`echo "$line"`
+
+
+    if [[ "$temp" == "create" ]] || [[ "$temp" == "" ]]
+    then
+        echo ""
+
+    elif [[ "$temp" == "(" ]]
+    then
+        printf "$temp"
+    elif [[ "$temp" == ")" ]]
+    then
+        printf "$temp"
+    else
+        printf "$temp"    
+    fi
+done
+
+IFS=$Old_IFS
+
+
+exit 0
+
+--------------
+to remove the 
+cat input_data.txt|awk '!($1="")'
+
+o/p:
+table demo_src.account
+
+ int,
+ varchar(50),
+ number(10,2)
+
+ table demo_src.product
+
+ int,
+ varchar(50),
+ number(10,2)
+ 
+echo "create table demo_src.test(id int,name varchar(50),salary number(10,2))"|awk '!($1="")'|awk '!($1="")'
+o/p:demo_src.test(id int,name varchar(50),salary number(10,2))----->
+echo "create table demo_src.test(id int,name varchar(50),salary number(10,2))"|awk '!($1="")'|awk '!($1="")'|sed 's/^[ \t]*//'
+o/p:demo_src.test(id int,name varchar(50),salary number(10,2))  ---removed the space before result.
+echo "create table demo_src.test(id int,name varchar(50),salary number(10,2))"|awk '!($1="")'|awk '!($1="")'|sed 's/^[ \t]*//'|while IFS="()" read a b; do echo "$b"; done
+o/p:
+
+command to  remove tab space with empty:
+---------------------------------------
+sed 's/^[ \t]*//'
+
+replace -,: with space in a file.
+---------------------------------
+echo "create table demo-src:account"|sed 's/[:-]/ /g'
+o/p:
+create table demo src account
+
+replace -,: with blankspace in a file.
+--------------------------------------
+echo "create table demo-src:account"|sed 's/[:-]//g'
+o/p:create table demosrcaccount
+---------------------------------------------------------------------
+cat a.txt
+
+create table demo_src.test(id int,name varchar(50),salary number(10,2))
+create table demo_src.test_1(id int,salary decimal(10,2))
+create table demo_src.test_2(id int,bonus decimal(10,2))
+create table demo_src.test_3(salary decimal(10,2),bonus decimal(10,2))
+
+cat a.txt|awk '!($1="")'|awk '!($1="")'|sed 's/^[ \t]*//'|while IFS="()" read a b; do echo "$b"; done
+
+id int,name varchar(50),salary number(10,2))
+id int,salary decimal(10,2))
+id int,bonus decimal(10,2))
+salary decimal(10,2),bonus decimal(10,2))
+
+replace the last brace with empty in a line:
+-------------------------------------------
+sed s/")"$//
+
+id int,name varchar(50),salary number(10,2)
+id int,salary decimal(10,2)
+id int,bonus decimal(10,2)
+salary decimal(10,2),bonus decimal(10,2)
+
+replace the ( with (" and ) with ") in the file:
+-----------------------------------------------
+sed -e 's/(/("/g' -e 's/)/")/g'
+
+id int,name varchar("50"),salary number("10,2")
+id int,salary decimal("10,2")
+id int,bonus decimal("10,2")
+salary decimal("10,2"),bonus decimal("10,2")
+
+Input field separator variable.
+---------------------------------
+Awk FS is any single character or regular expression which you want to use as a input field separator.
+awk -F\" '{for (i=2;i<=NF;i+=2)gsub(",",";",$i)}1' OFS=\"|tr , '\n' 
+
+id int
+name varchar("50")
+salary number("10;2")
+id int
+salary decimal("10;2")
+id int
+bonus decimal("10;2")
+salary decimal("10;2")
+bonus decimal("10;2")
+
+In awk, $0 is the whole line of arguments, whereas $1 is just the first argument in a list of arguments separated by spaces. So if I put "Mary had a little lamb" through awk, $1 is "Mary", but $0 is "Mary had a little lamb". The second line is trying to find the substring "Mary" in the whole line given to awk.
+
+echo "mary john jay"|awk '{print $0}'
+mary john jay
+echo "mary john jay"|awk '{print $1}'
+mary
+------------------------------------
+OFS can be used to convert space separated file into colon separated file.OFS is a AWK built-in variable used to change the output field separator.
+
+Note : OFS will not be applied when print $1 $2 is used , is mandatory and OFS will not be used if print $0 is used.
+
+awk 'BEGIN{OFS=":";}{print $1,$2;}' file.txt
+
+file.txt contains
+-----------------
+sam 80
+merlin 90
+ray 85
+
+cat ac.txt|awk 'BEGIN{OFS=":";}{print $1,$2;}' ac.txt
+
+sam:20
+ram:30
+shyam:50
+
+https://www.thegeekstuff.com/2010/01/8-powerful-awk-built-in-variables-fs-ofs-rs-ors-nr-nf-filename-fnr/?ref=binfind.com/web
+
+http://www.theunixschool.com/2012/06/awk-10-examples-to-split-file-into.html
+cat ac.txt|awk 'BEGIN{FS=":";}{print$1,$2}' ac.txt
+
+sam 20
+ram 30
+shyam 50
+
+to search one chracter and print the 1st and 2nd contents with table space between them.
+--------------------------------------------------------------------------------------
+cat ac.txt|awk '/a/ {print $1 "\t" $2}' ac.txt
+or
+cat ac.txt|awk '/s/ {print $1 "\t" $2}' ac.txt
+o/p:
+sam     20
+ram     30
+shyam   50
+to print lines which length is more than 7
+-----------------------------------------
+cat ac.txt|awk 'length($0) < 7' ac.txt
+
+To replace the field delimeter : with = in a file. 
+--------------------------------------------------
+awk -F':' 'BEGIN{OFS="=";} {print $1,$2;}' temp.txt
+
+RS Example: Record Separator variable:
+--------------------------------------
+Awk RS defines a line. Awk reads line by line by default.
+
+awk 'BEGIN {RS="\n\n";FS="\n";}{print $1,$2;}'
+
+cat student.txt |awk 'BEGIN {RS="\n\n";FS="\n"; OFS="-";}{print $1,$2;}'
+
+
+Awk NF gives you the total number of fields in a record. Awk NF will be very useful for validating whether all the fields are exist in a record.
+
+$cat student-marks
+Jones 2143 78 84 77
+Gondrol 2321 56 58 45
+RinRao 2122 38 37
+Edwin 2537 78 67 45
+Dayan 2415 30 47
+
+$ awk '{print NR,"->",NF}' student-marks
+1 -> 5
+2 -> 5
+3 -> 4
+4 -> 5
+5 -> 4
+
+Awk FILENAME Example: Name of the current input file
+FILENAME variable gives the name of the file being read. Awk can accept number of input files to process.
+awk '{print FILENAME}' student-marks
+
+Awk FNR Example: Number of Records relative to the current input file
+When awk reads from the multiple input file, awk NR variable will give the total number of records relative to all the input file. Awk FNR will give you number of records for each input file.
+
+$ awk '{print FILENAME, FNR;}' student-marks bookdetails
+student-marks 1
+student-marks 2
+student-marks 3
+student-marks 4
+student-marks 5
+bookdetails 1
+bookdetails 2
+bookdetails 3
+bookdetails 4
+bookdetails 5
+
+Print the matched line, along with the 3 lines after it.
+
+$ grep -A 3 -i "example" demo_text
+
+Search for a given string in all files recursively
+
+$ grep -r "ramesh" *
+
+grep -r "a" *.txt
+
+Find all empty files in home directory
+
+# find ~ -empty
+
+Print file content in reverse order
+sed -n '1!G;h;$p' input_data.txt
+
+Remove duplicate lines using awk
+
+$ awk '!($0 in array) { array[$0]; print }' temp
+
+Sort a file in ascending order
+
+$ sort names.txt
+
+Sort a file in descending order
+
+$ sort -r names.txt
+
+To create a *.gz compressed file:
+
+$ gzip test.txt
+To uncompress a *.gz file:
+
+$ gzip -d test.txt.gz
+-----------------------------------------------
+$ man cat
+press q to exit the window.
+
+tail -n 5 input_data.txt prints last 5 lines.
+
+ grep -n "s" input_data.txt to display the lines which contains  s  with the line numbers.(n)
+ 
+ cat input_data.txt |nl
+ 
+     1  create table demo_src.account
+     2  (
+     3  id int,
+     4  name varchar(50),
+     5  salary number(10,2)
+     6  );
+     7  create table demo_src.product
+     8  (
+     9  id int,
+    10  name varchar(50),
+    11  salary number(10,2)
+    12  );
+
+echo "remove white   spaces"|tr -s [:blank:]
+o/p:
+remove white spaces
+
+Using the fold command, lines are broken at a specified width. Originally this command was used
+to help format text for fixed-width output devices incapable of wrapping text
+
+fold -w8 input_data.txt
+o/p:
+create t
+able dem
+o_src.ac
+count
+(
+id int,
+name var
+char(50)
+,
+salary n
+umber(10
+,2)
+);
+
+paste will merge 2 files data
+------------------
+paste ac.txt ac.txt
+
+to remove a file forcefully.
+----------------------------
+rm -f abc.txt(only only will remove forcefully)
+or 
+rm -r tet.tx(to remove a directory,file forcefully even if files are present)
+
+It matches zero or one occurrence of the preceding character. For instance, the following example matches Colour as well as Color. We have made u as an optional character by using ?
+
+echo -e "Call\nTall\nBall\nSmall\nShall\nSall"|awk '/Sm?all/'
+
+Small
+Sall
+
+awk 'BEGIN {i = 1; do { print i; ++i } while (i <= 10) }'
+
+
+awk 'BEGIN {
+   sum = 0; for (i = 0; i < 20; ++i) { 
+      sum += i; if (sum > 50) break; else print "Sum =", sum 
+   } 
+}'
+
+awk 'BEGIN {
+   a = 30;
+   
+   if (a==10)
+   print "a = 10";
+   else if (a == 20)
+   print "a = 20";
+   else if (a == 30)
+   print "a = 30";
+}'
+
+cat text1.txt text2.txt
+this is line 1 UNIX UNIX
+this is line 2 unix
+this is line 3 Unix Unix
+this is line 4 hello
+this is line 1 hello
+this is line 2 Unix
+this is line 3 UNIX UNIX
+this is line 4 unix unix
+
+grep --color line test3.txt   -----------# color the matching text
+
+this is line 1 UNIX UNIX(line is appear in red color)
+this is line 2 unix
+this is line 3 Unix Unix
+this is line 4 hello
+
+grep -A1 hello test4.txt(A for after 1 line and hello string matched line.)
+this is line 4 hello
+this is line 1 UNIX UNIX
+--
+this is line 4 hello
+this is line 3 Unix Unix
+
+grep -B1 hello test4.txt(B for before line and hello string matched line.)
+this is line 3 Unix Unix
+this is line 4 hello
+--
+this is line 3 Unix Unix
+this is line 4 hello
+
+grep -C1 hello test4.txt
+this is line 3 Unix Unix
+this is line 4 hello
+this is line 1 UNIX UNIX
+--
+this is line 3 Unix Unix
+this is line 4 hello
+this is line 3 Unix Unix
+
+ grep -v  hello test4.txt(-v  returns lines doesnt contain the hello string)
+ 
+ this is line 1 UNIX UNIX
+this is line 2 unix
+this is line 3 Unix Unix
+this is line 1 UNIX UNIX
+this is line 2 unix
+this is line 3 Unix Unix
+this is line 3 Unix Unix
+
+First get the process id using ps -ef command, then use kill -9 to kill the running Linux process
+ps -ef
+
+kill -9 7243
+
+ex:
+$ ps -ef | grep firefox
+1986 ?        Sl     7:22 /usr/lib/firefox-3.5.3/firefox
+$ kill -9 1986
+
+sed -n 1,3p test4.txt
+
+cat input_data.txt |sed /^$/d   (remove the last blank line in afile)
+
+awk 'BEGIN { printf "Octal representation = %#o\nHexadecimal representaion = %#X\n", 10, 10}'
+o/p:
+Octal representation = 012
+Hexadecimal representaion = 0XA
+----------------------------------
+NAME[0]="Zara"
+NAME[1]="Qadir"
+NAME[2]="Mahnaz"
+NAME[3]="Ayan"
+NAME[4]="Daisy"
+echo "First Index: ${NAME[0]}"
+echo "Second Index: ${NAME[1]}"
+o/p:
+First Index: Zara
+Second Index: Qadir
+
+You can access all the items in an array
+
+${array_name[*]}
+${array_name[@]}
+
+NAME[0]="Zara"
+NAME[1]="Qadir"
+NAME[2]="Mahnaz"
+NAME[3]="Ayan"
+NAME[4]="Daisy"
+echo "First Method: ${NAME[*]}"
+echo "Second Method: ${NAME[@]}"
+
+a=10
+
+until [ $a -lt 10 ]
+do
+   echo $a
+   a=expr $a + 1`
+done
+----------------------------------
+\$ to enable literal dollar signs
+
+\` to enable literal backquotes
+
+\" to enable embedded double quotes
+
+echo "value is:\$1200"
+value is:$1200
+
+echo "value is:\"1200"\"
+value is:"1200"
+------------------------
+$ echo line 1 > f1.txt
+$ echo line 2 >> f1.txt
+$ cat f1.txt
+line 1
+line 2
+----------------------
+code for converting  total file content ina single line.
+Sometimes you will need to execute a command, but you don't want the output displayed on the screen. In such cases, you can discard the output by redirecting it to the file /dev/null
+
+IFS=$'\n';
+file=`cat $1` > /dev/null
+for line in $file
+do
+    temp=`echo "$line"`
+    if [[ $temp = " " ]]
+    then
+    printf ""
+    else
+    printf "$temp"
+    fi
+done
+
+$./table_order.sh input_data.txt
+
+create table demo_src.account(id int,name varchar(50),salary number(10,2));create table demo_src.product(id int,name varchar(50),salary number(10,2));
+
+---------------------------------------------------------
+function with return some value
+function hello()
+{
+echo "i am function call "
+return 10
+}
+
+hello  //function call
+
+ret=$?  //store the return type value
+
+echo "Return value is $ret"
+
+run command:
+./function.sh
+o/p:
+i am function call
+Return value is 10
+----------------------------------------------------------
+parameter passing to a function:
+--------------------------------
+
+Hello ()
+{
+   echo "Hello World $1 $2"
+}
+
+Hello value 10
+
+./function1.sh
+Hello World value 10
+----------------------------------------
+calling one function in other function.
+
+number_one () {
+x=$v1;
+y=$v2;
+echo "This function will read the values and value1  is $x and value2 is $y"
+}
+
+number_two () {
+   echo "enter thevalue1"
+   read v1
+echo "enter value2"
+read v2
+number_one
+}
+
+number_two
+
+-----------------------------------------------
+add()
+{
+x=$1
+y=$2
+echo -e "Number entered by u are: $x and $y"
+echo "sum of $1 and $2 is `expr $x + $y` "
+}
+# main script
+echo "enter first number"
+read first
+echo "enter second number"
+read sec
+#calling function
+add $first $sec
+echo "end of the script"
+
+run:
+ ./fun_4.sh
+
+o/p:
+enter first number
+2
+enter second number
+7
+Number entered by u are: 2 and 7
+sum of 2 and 7 is 9
+end of the script
+===================================
+loop for storing the data in a array and display the values.
+
+for((i=0;i<5;i++))
+do
+echo "enter the array element `expr $i + 1`"
+read arr[$i]
+done
+echo "the array members are"
+for((i=0;i<5;i++))
+do
+echo ${arr[$i]}
+done
+
+run:
+./fun_array.sh
+o/p:
+enter the array element 1
+2
+enter the array element 2
+3
+enter the array element 3
+4
+enter the array element 4
+5
+enter the array element 5
+6
+the array members are
+2
+3
+4
+5
+6
+--------------------------------------------
+Read the data until you press the enter key.Here we won’t specify the variable where to store the data.By default the data is stored in the variable called REPLY. So we can invoke the data as $REPLY .
+[dibeta@lpcdiapp4 shobha]$ read
+i am reading
+[dibeta@lpcdiapp4 shobha]$ echo $REPLY
+i am reading
+[dibeta@lpcdiapp4 shobha]$
+
+read -p “ prompt_text”
+Here we read the data along with some hint text . The hint text helps the user what he/she has to enter . -p here stands for the prompt . The hint text also called the prompt text.
+[dibeta@lpcdiapp4 shobha]$ read -p "enter your name:"
+enter your name:shobha
+[dibeta@lpcdiapp4 shobha]$ echo "your name is:$REPLY"
+your name is:shobha
+[dibeta@lpcdiapp4 shobha]$
+
+The variable is the place holder for the text you enter. The whole unit oftext is stored in the variable you provide.
+[dibeta@lpcdiapp4 shobha]$ read -p "enter your name:" n
+enter your name:shobha
+[dibeta@lpcdiapp4 shobha]$ echo "name is $n"
+name is shobha
+
+[dibeta@lpcdiapp4 shobha]$ read n
+my name is shobha
+[dibeta@lpcdiapp4 shobha]$ echo $n
+my name is shobha
+
+Yanking is the process of holding the cut or copied text into the buffer which can pasted.
+
+To make vi display line numbers, you need to set the number flag. To do so:
+
+1)Press the Esc key if you are currently in insert or append mode.
+2)Press : (the colon). The cursor should reappear at the lower left corner of the screen next to a : prompt.
+3)Enter the following command:---
+  :set number (at the left corner)
+4)it will display with line numbers in vi editor.
+
+What is a shebang line?
+A first line in the shell script which tells which shell need to be used to execute the following commands in the shell script.
+Which command can be used to delete a shell variable?
+unset.
+
+Which shell variable holds the shell script file name?
+$0
+
+How can we get the execution status of the last executed command?
+$?
+ex:
+[dibeta@lpcdiapp4 shobha]$ echo $?
+0
+[dibeta@lpcdiapp4 shobha]$ sed skdhf
+sed: -e expression #1, char 5: unterminated `s' command
+[dibeta@lpcdiapp4 shobha]$ echo $?
+1
+
+What is the full form of grep?
+Globally search for regular expression.
+Is it compulsory to have the extension ‘sh’ for a shell script?
+No, it is a convention.
+Which filter can be used to extract a/specific/range of character from the lines of text?
+cut
+
+Distinguish between cmp and diff commands?
+‘diff’ shows all the differences from two file whereas ‘cmp’ shows the only the first occurring difference. The said is applicable only if differences between the files do exist.
+
+cmp text1.txt text2.txt
+o/p:
+text1.txt text2.txt differ: byte 16, line 1
+
+diff text1.txt text2.txt
+o/p:
+1,4c1,4
+< this is line 1 UNIX UNIX
+< this is line 2 unix
+< this is line 3 Unix Unix
+< this is line 4 hello
+---
+> this is line 1 hello
+> this is line 2 Unix
+> this is line 3 UNIX UNIX
+> this is line 4 unix unix
+
+[dibeta@lpcdiapp4 shobha]$ diff text1.txt text5.txt
+returns blank if both are identical files.
+
+How can you list all the directories using ls command?
+ls −l|grep “^d”
+Name three looping constructs provided by shell.
+while, until & for.
+What is inode?
+A file is given a unique number by OS and is called as inode.
+What is the default working directory of administrator?
+/root
+In which directory by default user home directories are created?
+/home
+
+
+Which symbol will be used with grep command to match the pattern pat at the beginning of a line?
+^pat
+
+^sign is used to search from the begining.
+sign^ is used to search from the end.
+Which command is used to sort the lines of data in a file in reverse order
+sort -r
+	
+Which symbol is used to separate more than one command in the same command line?
+" ; " command allow user to use more than one command in the same line.
+
+For egcat >> file1 ; cp file1 file2.
+It will first ask to append the data into file 1 and the appended data with the previous data in file1 will be copied to file2.
+
+ 	
+Which of the following commands is used to update access and modification times of a file?
+Touch:
+
+-a, change the access time only.
+
+-c, if the file does not exist, do not create it and do not report this condition.
+
+-d date_time, use the date_time specified to update the access and modification times.
+
+-m, change the modification time only.
+
+-r file, use the access and modification times of file.
+
+-t time, use the time specified (in the format below) to update the access and modification times.
+
+Which command is used to change protection mode of files starting with the string emp and ending with 1,2, or 3?
+chmod u+x text[1-3].txt
+
+	
+In vi editor, forward search is performed using the command.
+/patteren_string
+	
+The / command searches forwards (downwards) in the file.
+The ? command searches backwards (upwards) in the file.
+
+/string	search forward for occurrence of string in text.
+?string	search backward for occurrence of string in text.
+n	move to next occurrence of search string.
+N	move to next occurrence of search string in opposite direction
+
+If we use '-i' option with 'rm' command then the system will ask for confirmation before deleting the file.-i means interactive,
+ex:
+[dibeta@lpcdiapp4 shobha]$ rm -i test3.txt
+rm: remove regular file `test3.txt'? y
+[dibeta@lpcdiapp4 shobha]$ ls
+result:file will delete
+[dibeta@lpcdiapp4 shobha]$ rm -i test4.txt
+rm: remove regular file `test4.txt'? n
+[dibeta@lpcdiapp4 shobha]$ ls
+result:does not remove the file
+
+
+Linux and Unix commands help
+About uptime
+uptime tells you how long the system has been running.
+
+Description
+uptime gives a one-line display of the following information:
+
+The current time
+how long the system has been running
+how many users are currently logged on
+the system load averages for the past 1, 5, and 15 minutes.
+
+uptime
+07:35:27 up 170 days,  4:36, 10 users,  load average: 0.16, 0.18, 0.19

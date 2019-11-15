@@ -1,0 +1,181 @@
+
+to connect pg for techstyle production:
+-------------------------------------
+psql -h tfgawsuswodpr01.cahcmvibycux.us-west-2.rds.amazonaws.com -W direpusr -d direpdb -p 5432
+
+local techstyle pg connect:
+-----------------------------
+psql -h localhost -p 9053 -U direpusr -w -d direpdb 
+
+snowflake microsoft azure:
+--------------------------
+App user:diyotta
+Password:D!y0tt@4321
+Region as East US 2
+Account : jf32627 
+
+
+http://172.40.9.203:9050/#/login
+shobha
+P2wd_4321
+
+local techstyle login:http://172.40.9.203:9050,
+winscp local  techstyle  controller details:
+--------------------------------
+ditechstyle
+172.40.9.203
+port:22
+ditechstyle
+p2wd1234
+------------------------------------------
+DB2 connection details.
+172.40.9.201
+t!h^84hv7B?si3hG 
+------------------------
+Amazon s3 connection details:
+(same like file connection check the option: on Files on Remote Location)
+File protocol:amazons3
+amazon host: https://s3-us-west-2.amazonaws.com
+bucket name:diyotta
+--------------
+s3 browser details:to connect to amazon s3 services we need s3 browser.
+login:add  new account
+account=diyotta(bucket namein connection)
+Access key ID	            Secret access key
+AKIAIBOC2SYAXW7RGHVA	MO9RAAsVZ/5N9Xx9gq3vbkIeo1tvvkZMGnrs9ZLy 
+
+Exadata is also one of the native.it is same like oracle connection details.
+native databases:Netezza, Teradata, PostgreSQL, Hadoop, BigInsights, Exadata, Greenplum, HAWQ, Splice Machine, Spark, Cassandra, Snowflake, BigQuery, Redshift
+--------------------------------------------------------------------------------------------------------------------------------
+presales_env: http://172.40.8.160:9200
+----------------
+We created new controller with 3112.005 build. Below are the details
+-------------------------------------------------------------------
+ URL: http://172.40.8.160:9200   
+
+ Version: 4.1.0Build Id: 3112Patch No: 008 (nov/26/2018)
+
+Controller SSH Details: 
+         Host: 172.40.8.160
+         User: dipresales
+        Password: BxL&fk8T
+
+Agent on 160: 
+          Host: 172.40.8.160
+          User: dipresales_agnt
+          Password:  5T#WXdD*
+
+Agent on 150: 
+          Host: 172.40.8.150
+          User: dipresales_agnt
+          Password:  5T#WXdD*
+
+
+Below are the credentials for Users:
+--------------------------------                           
+
+User: sgundemoni
+Password: y13eD_KB
+
+User: yvallabhaneni
+Password: yB7X_WBy
+
+User: sreddy
+Password: F2U&BnLP/P2wd_4321
+
+
+User: dramachandran
+Password: aV&HWo34 
+
+
+User: dramachandran
+Password: aV&HWo34 
+
+----------------------------------------------------------------------------------------------------------------------
+http://schematic-ipsum.herokuapp.com/  -----json data generator from json schemas/create_from_ddl
+https://jsonschema.net/----   json schema generator from jsonschemawithdata .
+http://convertcsv.com/csv-to-flat-file.htm----------fixed width of a csv file(csv file with fixed width)
+http://training.diyotta.com/ 
+un:Administrator
+PWD:Administrator
+
+snowflake url for diyotta:
+https://diyotta.us-east-1.snowflakecomputing.com/console/login   
+user-diyotta 
+Pwd-D!y0tt@SF 
+-----------------------------------------------
+demo_beta_160  putty  agent details:
+172.40.8.160 
+22
+dibeta_agnt	
+2FYn9LQ#p!S	
+
+Beta controller/server  details
+172.40.8.160 
+22
+dibeta	
+dbVuFAMR3g
+
+-----------------------------------------------------------------------------------------
+big query connection:
+
+http://bigquery.cloud.google.com/ 
+diyottabq@gmail.com 
+diyotta_4321
+
+diyottainc@gmail.com
+serach for bigquery it will open query window.
+or use the below url to goto query window.
+https://console.cloud.google.com/bigquery?project=my-project-1508788161310
+
+insert in bigq:
+insert into`my-project-1508788161310.DEMO_SRC.EMPLOYEE_BIGQUERY` (EMP_ID, END_DATE, FIRST_NAME, LAST_NAME, START_DATE, TITLE, ASSIGNED_BRANCH_ID, DEPT_ID, SUPERIOR_EMP_ID) values(1,'2001-06-22','Michael','Smith','2001-06-22','President',1,3,2)
+
+--------------------------------------------------------------------
+*****TERADATA**************
+172.40.9.15
+1025
+demousr 
+p2wd1234
+databases:demo_stg,demo_dm,demo_tform
+
+172.40.9.14
+1025
+idxdevusr 
+-------------------------------------
+
+hive :
+172.40.9.223 
+direp_qa 
+p2wd1234 
+
+
+hive:(for practise)
+
+172.40.8.112 
+22 
+labuser 
+p2wd1234 
+
+--------------------------
+hive:(ctl project)
+172.40.8.143 
+22 
+labuser 
+p2wd1234 
+!connect jdbc:hive2://lvclabcdh133.diyotta.com:10000/;principal=hive/lvclabcdh133.diyotta.com@labcdh.diyotta.com;ssl=true;sslTrustStore=/home/labuser/impala.jks;trustStorePassword=P2wd_4321;
+
+!connect jdbc:hive2://lvclabcdh123.diyotta.com:21050/;principal=impala/lvclabcdh123.diyotta.com@labcdh.diyotta.com;ssl=true;sslTrustStore=/home/labuser/impala.jks;trustStorePassword=P2wd_4321; 
+
+---------------------
+Sql formatter online:
+---------------------
+http://www.dpriver.com/pp/sqlformat.htm
+
+mockaroo for data insert 
+-----------------------
+https://www.mockaroo.com/schemas/create_from_ddl
+copy the ddl and
+
+character sequence for---@@@---for all 3 lowercase letters
+custom  list ---userdefined values passing
