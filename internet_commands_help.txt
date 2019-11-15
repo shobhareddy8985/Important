@@ -1,0 +1,44 @@
+
+Ping:
+-----
+This utility is commonly used to check whether your connection to the server is healthy or not.
+
+
+
+Telnet:
+------
+
+Telnet enables a user to manage an account or device remotely. For example, a user may telnet into a computer that hosts their website to manage his or her files remotely
+
+
+
+I personally would choose telnet because PING does not TROUBLESHOOT, according to Sybex it is used to TEST connectivity and to find out if a host is responding.....whereas
+
+'TELNET is a troubleshooting tool, you can telnet any TCP port to see if it is responding, which is especially useful when checking SMTP and HTTP web ports'.
+
+
+
+Domain Name Server (DNS):
+-----------------------
+
+hort for Domain Name System (or Service or Server), an Internet service that translates domain names into IP addresses. Because domain names are alphabetic, they're easier to remember. The Internet however, is really based on IP addresses. Every time you use a domain name, therefore, a DNS service must translate the name into the corresponding IP address. For example, the domain name www.example.com might translate to 198.105.232.4.
+
+DNS is a host name to IP address translation service. DNS is a distributed database implemented in a hierarchy of name servers. It is an application layer protocol for message exchange between clients and servers.
+
+
+How is SSH different from telnet?
+---------------------------------
+The key difference between Telnet and SSH is that SSH uses encryption, which means that all data transmitted over a network is secure from eavesdropping. SSH uses the public key encryption for such purposes. Like Telnet, a user accessing a remote device must have an SSH client installed
+
+
+What is SSH key used for?
+--------------------------
+Definition. SSH uses public-key cryptography to authenticate the remote computer and allow it to authenticate the user, if necessary. There are several ways to use SSH; one is to use automatically generated public-private key pairs to simply encrypt a network connection, and then use password authentication to log on.
+
+An SSH key is an access credential in the SSH protocol. Its function is similar to that of user names and passwords, but the keys are primarily used for automated processes and for implementing single sign-on by system administrators and power users.
+
+
+
+What is the difference between a private and public key?:
+---------------------------------------------------------
+The main difference between public key and private key in cryptography is that the public key is used for data encryption while the private key is used for data decryption. ... In brief, a message encrypted with the public key cannot be decrypted without using the corresponding private ke

@@ -1,0 +1,37 @@
+What is Change Data Capture?
+Change data capture (CDC) is the process of capturing changes made at the data source and applying them throughout the enterprise. CDC minimizes the resources required for ETL ( extract, transform, load ) processes because it only deals with data changes. The goal of CDC is to ensure data synchronicity.
+
+Inserting new records, updating one or more fields of existing records, deleting records are the types of changes which Change Data Capture processes must detect in the source system.
+
+
+https://blog.exsilio.com/all/how-to-use-change-data-capture/
+
+
+STEP 1: DB Set up
+Source and Target Tables: I have a source table which has 6 records and an empty destination table.
+
+We need to enable CDC on the entire Database by executing sys.sp_cdc_enable_db
+
+To list all the databases that are CDC enabled we can use the below query:
+
+SELECT name, database_id, is_cdc_enabled FROM sys.databases
+
+WHERE is_cdc_enabled = 1
+
+
+Checking the list of Databases  which are having Change Data Capture enabled .
+
+
+
+USE master 
+GO 
+SELECT [name], database_id, is_cdc_enabled  
+FROM sys.databases       
+GO 
+
+-- Disable Database for Change Data Capture template   
+-- =======  
+USE MyDB  
+GO  
+EXEC sys.sp_cdc_disable_db  
+GO
