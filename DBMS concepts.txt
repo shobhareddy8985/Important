@@ -1,0 +1,24 @@
+Different types of DBMS
+
+Different types of Database Management Systems based in data models are as follows:
+
+Relational Database Management Systems
+Hierarchical Database Management Systems
+Network Database Management Systems
+Object-oriented Database Management Systems
+
+Hierarchical DBMS
+
+A DBMS is said to be hierarchical if the relationships among data in the database are established in such a way that one data item is present as the subordinate of another one or a sub unit. Here subordinate means that items have "parent-child" relationships among them. These are good for storing data with items describing attributes, features and so on. For e.g., a book with information on chapters and verses.
+
+Network DBMS
+
+A DBMS is said to be a Network DBMS if the relationships among data in the database are of type many-to-many. The relationships among many-to-many appears in the form of a network. Thus the structure of a network database is extremely complicated because of these many-to-many relationships in which one record can be used as a key of the entire database. These have mainly been replaced by Relational database management systems in today's modern computing.
+
+Object-oriented DBMS
+
+OODBMS represent significant advance over other DBMS. While other DBMS are designed to handle structred data, an OODBMS is designed to store data from variety of media sources, such as photographs and text, and produce work, as output, in a multimedia format.
+
+Relational DBMS
+
+A DBMS is said to be a Relational DBMS or RDBMS if the database relationships are treated in the form of a table. The data can be related to other data in the same table or other tables which has to be correctly managed by joining one or more tables. Data in this type of model is stored is fixed predefined structures and are usually manipulated using Structured Query Language (SQL).

@@ -1,0 +1,13 @@
+SSRS:
+
+types
+
+tablix reports  : representaion of data in table format.
+ex: same like excell sheet
+subreports : one report is embedded in other report. 
+ex: overall sales in all regions in main report.individula sales in particular region using sub report.
+
+matrix: intersection of rows and columns.
+drillthrough:
+drilldown:
+charts :pie chart,bar,line

@@ -1,0 +1,4 @@
+NULL is a absence of value, 
+where a field having NULL is not allocated any memory, where as empty fields have empty value with allocated space in mem
+
+NULL is unknown value where as Emprty string is a value with zero length

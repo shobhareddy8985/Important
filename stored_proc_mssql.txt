@@ -1,0 +1,168 @@
+A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+
+So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it.
+
+You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
+
+
+1.easy way to create a storred_proc
+
+use diappdb_dm;
+GO
+CREATE PROCEDURE sp_proc
+AS
+begin
+SELECT * FROM sample
+end
+GO;
+
+to execute a stored proc:
+------------------------
+EXEC sp_proc;
+
+
+To display the stored_procs in current database:
+-----------------------------------------------
+Select [NAME] from sysobjects where type = 'P' and category = 0
+
+or
+
+select * from sys.procedures
+
+
+to modify the existing stored proc :
+----------------------------------
+use diappdb_dm
+GO
+
+alter  PROCEDURE sp_proc
+AS
+BEGIN
+ SELECT * FROM sample
+END
+GO;
+
+
+
+2) creating a stored proc with single parameter city and passing param value to stored proc.
+
+
+changing the normal stored proc to parameter passing stored proc:
+----------------------------------------------------------------
+use diappdb_dm
+GO
+
+alter  PROCEDURE SampleProcedure @city varchar(50)
+AS
+BEGIN
+  SET NOCOUNT ON;
+ SELECT * FROM sample where city =@city
+END
+
+
+running the stored proc by passing param value to it.
+----------------------------------------------------
+use diappdb_dm;
+GO
+EXEC SampleProcedure 'hyd';
+
+
+3)creating a stored proc with 2 parameter city ,name and passing param value to stored proc.
+
+use diappdb_dm
+GO
+
+alter  PROCEDURE SampleProcedure @city varchar(50),@name varchar(40)
+AS
+BEGIN
+  SET NOCOUNT ON;
+ SELECT * FROM sample where city =@city and name =@name
+END
+
+
+running the stored proc by passing param values to it.
+----------------------------------------------------
+use diappdb_dm;
+GO
+EXEC SampleProcedure 'hyd','shobha'
+
+-------------------------------------------------------------
+
+
+
+2 and way of creating stored_proc
+
+
+use diappdb_dm
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON  
+GO  
+create procedure sp_my_proc
+as
+
+begin
+  SET NOCOUNT ON; 
+  create table sample
+  (id int ,
+  name varchar(50),
+  city varchar(50))
+  end
+  go
+ SET ANSI_PADDING OFF  
+GO  
+
+
+1) ANSI_NULLS ON:
+
+Set ANSI NULLS OFF will make NULL = NULL comparision return true. EG :
+
+        SET ANSI_NULLS OFF
+        select * from sys.tables
+        where principal_id = Null
+will return some result as displayed below: zcwInvoiceDeliveryType 744547 NULL zcExpenseRptStatusTrack 2099048 NULL ZCVendorPermissions 2840564 NULL ZCWOrgLevelClientFee 4322525 NULL
+
+While this query will not return any results:
+
+        SET ANSI_NULLS ON 
+        select * from sys.tables
+        where principal_id = Null
+		
+2)While we set SET NOCOUNT ON it means there is no messages which shows the number of rows affected.
+ 
+NOCOUNT means do not count that is ON. 
+
+3)
+
+SET QUOTED_IDENTIFIER ON/OFF:
+
+It specifies how SQL Server treats the data that is defined in Single Quotes and Double Quotes. When it is set to ON any character set that is defined in the double quotes “” is treated as a T-SQL Identifier (Table Name, Proc Name, Column Name….etc) and the T-SQL rules for naming identifiers will not be applicable to it. And any character set that is defined in the Single Quotes ‘’ is treated as a literal.
+
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE "SELECT" ("TABLE" int)  -- SUCCESS
+GO
+
+
+SET QUOTED_IDENTIFIER ON
+SELECT "sometext" AS Value   -- FAIL because “sometext” is not a lit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

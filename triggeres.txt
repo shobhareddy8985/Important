@@ -1,0 +1,91 @@
+What is a SQL Server Trigger?
+----------------------------
+A SQL Server trigger is a piece of procedural code, like a stored procedure which is only executed when a given event happens. There are different types of events that can fire a trigger. Just to name you a few, the insertion of rows in a table, a change in a table structure and even a user logging into a SQL Server instance.
+
+There are three main characteristics that make triggers different than stored procedures:
+
+Triggers cannot be manually executed by the user.
+There is no chance for triggers to receive parameters.
+You cannot commit or rollback a transaction inside a trigger.
+
+
+Classes of SQL Server Triggers:
+-------------------------------
+There are two classes of triggers in SQL Server:
+
+DDL (Data Definition Language) triggers. This class of triggers fires upon events that change the structure (like creating, modifying or dropping a table), or in certain server related events like security changes or statistics update events.
+DML (Data Modification Language) triggers. This is the most used class of triggers. In this case the firing event is a data modification statement; it could be an insert, update or delete statement either on a table or a view.
+
+
+
+A trigger is a special type of stored procedure that automatically runs when an event occurs in the database server. DML triggers run when a user tries to modify data through a data manipulation language (DML) event. DML events are INSERT, UPDATE, or DELETE statements on a table or view. These triggers fire when any valid event fires, whether table rows are affected or not
+
+
+DDL:create,alter,drop,rename,truncate
+DML:insert,select,update,dalete 
+DCL:Data Control Language  :------ grant,invoke
+TCL:Transaction Control Languages : ------commit,rollback
+
+
+Triggers
+Triggers are database operations which are automatically performed when an action such as Insert, Update or Delete is performed on a Table or a View in database.
+Triggers are associated with the Table or View directly i.e. each table has its own Triggers.
+ 
+Types of Triggers
+There are two types of Triggers. After and Instead of Triggers.
+After Triggers
+These triggers are executed after an action such as Insert, Update or Delete is performed.
+ 
+Instead of Triggers
+These triggers are executed instead of any of the Insert, Update or Delete operations. For example, let’s say you write an Instead of Trigger for Delete operation, then whenever a Delete is performed the Trigger will be executed first and if the Trigger deletes record then only the record will be deleted.
+
+-------------------
+example:
+After Triggers
+Now I will explain you with examples the After Triggers for Insert, Update and Delete operations.
+Insert Trigger
+Below is an example of an After Insert Trigger. Whenever a row is inserted in the sample Table, the following trigger will be executed. The newly inserted record is available in the INSERTED table.
+The following Trigger is fetching the CustomerId of the inserted record and the fetched value is inserted in the CustomerLogs table.
+
+
+
+CREATE TRIGGER [dbo].[CUSTOMER_INSERT_TRIGGER]
+       ON [dbo].[sample]
+AFTER INSERT
+AS
+BEGIN
+       SET NOCOUNT ON;
+ 
+       DECLARE @Id INT
+ 
+       SELECT @Id = INSERTED.Id       
+       FROM INSERTED
+ 
+       INSERT INTO CustomerLogs
+       VALUES(@Id, 'Inserted')
+END
+
+before running the trigger we need to create one table:
+------------------------------------------------------
+create or replace table CustomerLogs(loginid int IDENTITY(1,1) NOT NULL,customerid int,Action varchar(50))
+
+
+
+insert into sample values(4,'chandu','hyd')
+
+
+enabling and disabling the trigger for a particular table.
+
+ENABLE TRIGGER CUSTOMER_INSERT_TRIGGER on sample
+
+DISABLE TRIGGER CUSTOMER_INSERT_TRIGGER on sample
+
+to check the log table which is storing the events.
+-------------------------------------------------
+select * from CustomerLogs
+
+to view all the list of triggers:
+--------------------------------
+select * from sys.triggers
+
+
