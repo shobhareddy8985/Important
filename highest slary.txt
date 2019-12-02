@@ -1,0 +1,72 @@
+use diappdb_dm
+
+select top 1 salary  from (select distinct top 3 salary from Employee  ORDER BY salary DESC ) a
+ORDER BY salary
+
+
+CREATE TABLE Employee (name varchar(10), salary int); 
+ INSERT INTO Employee VALUES ('Rick', 3000); 
+INSERT INTO Employee VALUES ('John', 4000); 
+INSERT INTO Employee VALUES ('Shane', 3000); 
+INSERT INTO Employee VALUES ('Peter', 5000); 
+INSERT INTO Employee VALUES ('Jackob', 7000);
+
+
+NOTE:
+RANK gives you the ranking within your ordered partition. Ties are assigned the same rank, with the next ranking(s) skipped. So, if you have 3 items at rank 2, the next rank listed would be ranked 5.
+
+DENSE_RANK again gives you the ranking within your ordered partition, but the ranks are consecutive. No ranks are skipped if there are ranks with multiple items.
+
+Here, in above figure, you can see that ROW_NUMBER function does not have any changes. It keeps increasing integer by one and it is not caring about duplicate values.
+ 
+In RANK, DENSE_RANK function, it is looking for duplicate values. The integer value is increasing by one but if the same value (Salary) is present in the table, then the same integer value is given to all the rows having the same value(Salary), as marked in sky blue color.
+In RANK function, the next row after the duplicate values (salary),marked in red color, will not give the integer value as next rank but instead of it, it skips those ranks and gives what is the next incremented rank. In the above case, the first three values are having same salary so it gives same rank to them but in next row, it gives as 4, It skips two and three as first three rows have same ranks.
+ 
+In DENSE_RANK function, it will not skip any rank. This means the next row after the duplicate value (salary) rows will have the next rank in the sequence.
+
+
+
+
+2nd highest salary from emp table:
+----------------------------------
+
+1).
+SELECT TOP 1 salary FROM 
+( SELECT DISTINCT TOP 2 salary FROM Employee ORDER BY salary DESC ) AS temp ORDER BY salary  --for 2 nd highest salary
+
+
+SELECT TOP 1 salary FROM 
+( SELECT DISTINCT TOP 3 salary FROM Employee ORDER BY salary DESC ) AS temp ORDER BY salary  --for 3 rd highest salary
+
+
+
+2).
+SELECT max(salary) FROM Employee WHERE salary NOT IN (SELECT max(salary) FROM Employee);
+
+3).
+SELECT max(salary) FROM Employee WHERE salary < (SELECT max(salary) FROM Employee);
+
+4).
+select * from (SELECT *,RANK ()over (order by salary desc)as rnk   from employee)a 
+where a.rnk =1
+
+  
+5).
+select top 1 b.* from Employee a left join Employee b
+on a.salary > b.salary
+order by salary desc
+
+6)
+select * from (SELECT *, ROW_NUMBER() OVER(ORDER BY salary desc) AS Row_Number  
+FROM Employee ) a where a.Row_Number =1
+
+
+-------------------
+
+deleing duplicates
+
+with empCTE as  
+(  
+select *, ROW_NUMBER() over(partition by EMPID order by EMPID) as rowno from Employee  
+)  
+delete from empCTE where rowno>1  
