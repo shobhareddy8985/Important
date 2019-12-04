@@ -1,0 +1,126 @@
+Command:sh $DI_HOME/support/scripts/runjobs.sh reporting-ACC-Day2-9AM 4 EDW01_TO_SNOWFLAKE
+Output:
+======== SCHEDULER ===========
+Total Jobs:23
+Group:reporting-ACC-Day2-9AM
+Queue Limit:4
+Project:EDW01_TO_SNOWFLAKE
+================================
+2019-12-02 19:59:26- Adding all jobs to scheduler
+2019-12-02 19:59:26- Job:jf_insrt_reporting_deferred_revenue_recognition starting
+2019-12-02 19:59:26- Total:23 Active:3 Queue:3 Waiting:17 Succeeded:0 Failed:0
+2019-12-02 19:59:26- Job:jf_insrt_reporting_retail_refunds starting
+2019-12-02 19:59:27- Job:jf_inupd_reporting_cash_noncash_credit_redemptions starting
+2019-12-02 19:59:27- Total:23 Active:3 Queue:3 Waiting:17 Succeeded:0 Failed:0
+2019-12-02 19:59:27- Total:23 Active:3 Queue:3 Waiting:17 Succeeded:0 Failed:0
+2019-12-02 19:59:27- Job:jf_insrt_reporting_credit_activity_reattributed starting
+2019-12-02 19:59:27- Total:23 Active:4 Queue:19 Waiting:0 Succeeded:0 Failed:0
+2019-12-02 20:00:12- Job:jf_insrt_reporting_retail_refunds succeeded
+2019-12-02 20:00:12- Job:jf_insrt_reporting_retail_refunds completed
+2019-12-02 20:00:12- Total:23 Active:3 Queue:19 Waiting:0 Succeeded:1 Failed:0
+2019-12-02 20:00:12- Job:jf_inupd_reporting_fl_day1_by_size starting
+2019-12-02 20:00:12- Total:23 Active:4 Queue:18 Waiting:0 Succeeded:1 Failed:0
+2019-12-02 20:00:18- Job:jf_insrt_reporting_credit_activity_reattributed succeeded
+2019-12-02 20:00:18- Job:jf_insrt_reporting_credit_activity_reattributed completed
+2019-12-02 20:00:18- Total:23 Active:3 Queue:18 Waiting:0 Succeeded:2 Failed:0
+2019-12-02 20:00:18- Job:jf_insrt_reporting_membership_credit_activities_reattributed starting
+2019-12-02 20:00:18- Total:23 Active:4 Queue:17 Waiting:0 Succeeded:2 Failed:0
+2019-12-02 20:00:39- Job:jf_insrt_reporting_deferred_revenue_recognition succeeded
+2019-12-02 20:00:39- Job:jf_insrt_reporting_deferred_revenue_recognition completed
+2019-12-02 20:00:39- Total:23 Active:3 Queue:17 Waiting:0 Succeeded:3 Failed:0
+2019-12-02 20:00:39- Job:jf_insrt_reporting_fabletics_reward_shop starting
+2019-12-02 20:00:39- Total:23 Active:4 Queue:16 Waiting:0 Succeeded:3 Failed:0
+2019-12-02 20:01:19- Job:jf_inupd_reporting_fl_day1_by_size succeeded
+2019-12-02 20:01:19- Job:jf_inupd_reporting_fl_day1_by_size completed
+2019-12-02 20:01:19- Total:23 Active:3 Queue:16 Waiting:0 Succeeded:4 Failed:0
+2019-12-02 20:01:19- Job:jf_insrt_reporting_na_sales_tax starting
+2019-12-02 20:01:19- Total:23 Active:4 Queue:15 Waiting:0 Succeeded:4 Failed:0
+2019-12-02 20:01:20- Job:jf_insrt_reporting_fabletics_reward_shop succeeded
+2019-12-02 20:01:20- Job:jf_insrt_reporting_fabletics_reward_shop completed
+2019-12-02 20:01:20- Total:23 Active:3 Queue:15 Waiting:0 Succeeded:5 Failed:0
+2019-12-02 20:01:20- Job:jf_insrt_reporting_product_dollars_by_company starting
+2019-12-02 20:01:20- Total:23 Active:4 Queue:14 Waiting:0 Succeeded:5 Failed:0
+2019-12-02 20:02:01- Job:jf_insrt_reporting_product_dollars_by_company succeeded
+2019-12-02 20:02:01- Job:jf_insrt_reporting_product_dollars_by_company completed
+2019-12-02 20:02:01- Total:23 Active:3 Queue:14 Waiting:0 Succeeded:6 Failed:0
+2019-12-02 20:02:01- Job:jf_insrt_reporting_giftco_rollforward starting
+2019-12-02 20:02:01- Total:23 Active:4 Queue:13 Waiting:0 Succeeded:6 Failed:0
+2019-12-02 20:02:44- Job:jf_insrt_reporting_giftco_rollforward succeeded
+2019-12-02 20:02:44- Job:jf_insrt_reporting_giftco_rollforward completed
+2019-12-02 20:02:44- Total:23 Active:3 Queue:13 Waiting:0 Succeeded:7 Failed:0
+2019-12-02 20:02:44- Job:jf_insrt_reporting_retail_sales_refunds starting
+2019-12-02 20:02:44- Total:23 Active:4 Queue:12 Waiting:0 Succeeded:7 Failed:0
+2019-12-02 20:03:23- Job:jf_insrt_reporting_na_sales_tax succeeded
+2019-12-02 20:03:23- Job:jf_insrt_reporting_na_sales_tax completed
+2019-12-02 20:03:23- Total:23 Active:3 Queue:12 Waiting:0 Succeeded:8 Failed:0
+2019-12-02 20:03:23- Job:jf_insrt_reporting_breakage_validation_issued_by_state starting
+2019-12-02 20:03:23- Total:23 Active:4 Queue:11 Waiting:0 Succeeded:8 Failed:0
+2019-12-02 20:03:24- Job:jf_insrt_reporting_retail_sales_refunds succeeded
+2019-12-02 20:03:24- Job:jf_insrt_reporting_retail_sales_refunds completed
+2019-12-02 20:03:24- Total:23 Active:3 Queue:11 Waiting:0 Succeeded:9 Failed:0
+2019-12-02 20:03:24- Job:jf_insrt_reporting_breakage_validation_expected starting
+2019-12-02 20:03:24- Total:23 Active:4 Queue:10 Waiting:0 Succeeded:9 Failed:0
+2019-12-02 20:04:00- Job:jf_insrt_reporting_breakage_validation_issued_by_state succeeded
+2019-12-02 20:04:00- Job:jf_insrt_reporting_breakage_validation_issued_by_state completed
+2019-12-02 20:04:00- Total:23 Active:3 Queue:10 Waiting:0 Succeeded:10 Failed:0
+2019-12-02 20:04:00- Job:jf_inupd_reporting_shipping_revenue starting
+2019-12-02 20:04:00- Total:23 Active:4 Queue:9 Waiting:0 Succeeded:10 Failed:0
+2019-12-02 20:04:05- Job:jf_insrt_reporting_breakage_validation_expected succeeded
+2019-12-02 20:04:05- Job:jf_insrt_reporting_breakage_validation_expected completed
+2019-12-02 20:04:05- Total:23 Active:3 Queue:9 Waiting:0 Succeeded:11 Failed:0
+2019-12-02 20:04:05- Job:jf_insrt_reporting_breakage_validation_pre_tracking starting
+2019-12-02 20:04:05- Total:23 Active:4 Queue:8 Waiting:0 Succeeded:11 Failed:0
+2019-12-02 20:04:38- Job:jf_inupd_reporting_cash_noncash_credit_redemptions succeeded
+2019-12-02 20:04:38- Job:jf_inupd_reporting_cash_noncash_credit_redemptions completed
+2019-12-02 20:04:38- Total:23 Active:3 Queue:8 Waiting:0 Succeeded:12 Failed:0
+2019-12-02 20:04:38- Job:jf_inupd_reporting_sku_sales_by_month starting
+2019-12-02 20:04:38- Total:23 Active:4 Queue:7 Waiting:0 Succeeded:12 Failed:0
+2019-12-02 20:04:44- Job:jf_inupd_reporting_shipping_revenue succeeded
+2019-12-02 20:04:44- Job:jf_inupd_reporting_shipping_revenue completed
+2019-12-02 20:04:44- Total:23 Active:3 Queue:7 Waiting:0 Succeeded:13 Failed:0
+2019-12-02 20:04:44- Job:jf_insrt_reporting_deferred_revenue_assumptions starting
+2019-12-02 20:04:44- Total:23 Active:4 Queue:6 Waiting:0 Succeeded:13 Failed:0
+2019-12-02 20:04:45- Job:jf_insrt_reporting_breakage_validation_pre_tracking succeeded
+2019-12-02 20:04:45- Job:jf_insrt_reporting_breakage_validation_pre_tracking completed
+2019-12-02 20:04:45- Total:23 Active:3 Queue:6 Waiting:0 Succeeded:14 Failed:0
+2019-12-02 20:04:45- Job:jf_insrt_reporting_nj_mn_accessories_sales_tax starting
+2019-12-02 20:04:45- Total:23 Active:4 Queue:5 Waiting:0 Succeeded:14 Failed:0
+2019-12-02 20:05:27- Job:jf_insrt_reporting_deferred_revenue_assumptions succeeded
+2019-12-02 20:05:27- Job:jf_insrt_reporting_deferred_revenue_assumptions completed
+2019-12-02 20:05:27- Total:23 Active:3 Queue:5 Waiting:0 Succeeded:15 Failed:0
+2019-12-02 20:05:27- Job:jf_inupd_reporting_returned_units starting
+2019-12-02 20:05:27- Total:23 Active:4 Queue:4 Waiting:0 Succeeded:15 Failed:0
+2019-12-02 20:05:31- Job:jf_inupd_reporting_sku_sales_by_month succeeded
+2019-12-02 20:05:31- Job:jf_inupd_reporting_sku_sales_by_month completed
+2019-12-02 20:05:31- Total:23 Active:3 Queue:4 Waiting:0 Succeeded:16 Failed:0
+2019-12-02 20:05:31- Job:jf_insrt_reporting_breakage_validation_actuals2 starting
+2019-12-02 20:05:31- Total:23 Active:4 Queue:3 Waiting:0 Succeeded:16 Failed:0
+2019-12-02 20:05:33- Job:jf_insrt_reporting_nj_mn_accessories_sales_tax succeeded
+2019-12-02 20:05:33- Job:jf_insrt_reporting_nj_mn_accessories_sales_tax completed
+2019-12-02 20:05:33- Total:23 Active:3 Queue:3 Waiting:0 Succeeded:17 Failed:0
+2019-12-02 20:05:33- Job:jf_insrt_reporting_breakage_validation_assumptions starting
+2019-12-02 20:05:33- Total:23 Active:4 Queue:2 Waiting:0 Succeeded:17 Failed:0
+2019-12-02 20:06:09- Job:jf_inupd_reporting_returned_units succeeded
+2019-12-02 20:06:09- Job:jf_inupd_reporting_returned_units completed
+2019-12-02 20:06:09- Total:23 Active:3 Queue:2 Waiting:0 Succeeded:18 Failed:0
+2019-12-02 20:06:09- Job:jf_insrt_reporting_breakage_validation_reattribute starting
+2019-12-02 20:06:09- Total:23 Active:4 Queue:1 Waiting:0 Succeeded:18 Failed:0
+2019-12-02 20:06:11- Job:jf_insrt_reporting_breakage_validation_actuals2 succeeded
+2019-12-02 20:06:11- Job:jf_insrt_reporting_breakage_validation_actuals2 completed
+2019-12-02 20:06:11- Total:23 Active:3 Queue:1 Waiting:0 Succeeded:19 Failed:0
+2019-12-02 20:06:11- Job:jf_insrt_reporting_activated_retail_metrics starting
+2019-12-02 20:06:11- Total:23 Active:4 Queue:0 Waiting:0 Succeeded:19 Failed:0
+2019-12-02 20:06:12- Job:jf_insrt_reporting_breakage_validation_assumptions succeeded
+2019-12-02 20:06:12- Job:jf_insrt_reporting_breakage_validation_assumptions completed
+2019-12-02 20:06:12- Total:23 Active:3 Queue:0 Waiting:0 Succeeded:20 Failed:0
+2019-12-02 20:06:48- Job:jf_insrt_reporting_breakage_validation_reattribute succeeded
+2019-12-02 20:06:48- Job:jf_insrt_reporting_breakage_validation_reattribute completed
+2019-12-02 20:06:48- Total:23 Active:2 Queue:0 Waiting:0 Succeeded:21 Failed:0
+2019-12-02 20:07:02- Job:jf_insrt_reporting_activated_retail_metrics succeeded
+2019-12-02 20:07:02- Job:jf_insrt_reporting_activated_retail_metrics completed
+2019-12-02 20:07:02- Total:23 Active:1 Queue:0 Waiting:0 Succeeded:22 Failed:0
+2019-12-02 21:56:13- Job:jf_insrt_reporting_membership_credit_activities_reattributed succeeded
+2019-12-02 21:56:14- Job:jf_insrt_reporting_membership_credit_activities_reattributed failed - Unparseable date: "NA"
+2019-12-02 21:56:14- Shutting down scheduler
+Exit Code:1
+ExitCode:1

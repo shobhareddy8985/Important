@@ -70,3 +70,15 @@ with empCTE as
 select *, ROW_NUMBER() over(partition by EMPID order by EMPID) as rowno from Employee  
 )  
 delete from empCTE where rowno>1  
+
+
+-----------------
+updating 3000 sal to 6000,4000 to 8000 in employee table.
+
+update  Employee set salary =
+case 
+when salary =3000 then 6000
+when salary = 4000 then 8000
+else salary
+end 
+

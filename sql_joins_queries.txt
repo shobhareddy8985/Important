@@ -1,0 +1,332 @@
+SELECT * FROM users;
+
+user_id  username
+1        John Doe                                                                                            
+2        Jane Don                                                                                            
+3        Alice Jones                                                                                         
+4        Lisa Romero
+
+SELECT * FROM training_details;
+
+user_training_id  user_id  training_id  training_date
+1                 1        1            "2015-08-02"
+2                 2        1            "2015-08-03"
+3                 3        2            "2015-08-02"
+4                 4        2            "2015-08-04"
+5                 2        2            "2015-08-03"
+6                 1        1            "2015-08-02"
+7                 3        2            "2015-08-04"
+8                 4        3            "2015-08-03"
+9                 1        4            "2015-08-03"
+10                3        1            "2015-08-02"
+11                4        2            "2015-08-04"
+12                3        2            "2015-08-02"
+13                1        1            "2015-08-02"
+14                4        3            "2015-08-03"
+
+
+Write a query to to get the list of users who took the a training lesson more than once in the same day, 
+grouped by user and training lesson, each ordered from the most recent lesson date to oldest date.
+
+
+My query:
+----------
+select username ,user_id
+    count( user_training_id ) AS count 
+	,training_date
+	from users
+inner join training_details on userid=userid
+group by  user_id , user_training_id ,username ,training_date
+having count( user_training_id )>1
+order by training_date desc
+
+
+Actual query :
+-------------
+SELECT
+      u.user_id,
+      username,
+      training_id,
+      training_date,
+      count( user_training_id ) AS count
+  FROM users u JOIN training_details t ON t.user_id = u.user_id
+  GROUP BY u.user_id,
+           username,
+           training_id,
+           training_date
+  HAVING count( user_training_id ) > 1
+  ORDER BY training_date DESC;
+  
+  
+  
+2).
+Given a table dbo.users where the column user_id is a unique numeric identifier, how can you efficiently select the first 100 odd user_id values from the table?
+
+(Assume the table contains well over 100 records with odd user_id values.)
+
+
+Ans:
+SELECT TOP 100 user_id FROM dbo.users WHERE user_id % 2 = 1 ORDER BY user_id
+
+
+To select all the even number records from a table:
+
+Select * from table where id % 2 = 0 
+To select all the odd number records from a table:
+
+Select * from table where id % 2 != 0
+
+
+-------------------------------------------
+
+update Employee
+set Gender= 
+case Gender when 'Male' then 'Female' 
+when 'Female' then 'Male'
+else Gender
+end
+
+
+combine all the rows of employee names in a single row.
+
+Declare @val Varchar(MAX); 
+Select @val = COALESCE(@val + ', ' + name, name) 
+        From Employee Select @val;
+		
+		
+	-------------------------
+	
+	SQL Server DATEADD() Function
+
+Q) Write a Query to display the date after 15 days?
+1
+SELECT DATEADD(dd, 15,getdate())
+Q) Write a Query to display date after 12 months?
+
+SELECT DATEADD(mm, 2, getdate())
+Q) Write a Query to display date before 15 days?
+
+SELECT DATEADD(dd, -15, getdate())
+SQL Server DATEDIFF() Function
+
+Q) Write a Query to display employee details along with exp?
+
+SELECT *
+DATEDIFF(yy, doj, getdate()) AS ‘Exp’ FROM employee
+Q) Write a Query to display employee details who is working in ECE department & who his having more than 3 years of exp?
+
+
+SELECT *
+DATEDIFF(yy, doj, getdate()) AS ‘Exp’ 
+FROM employee 
+WHERE DATEDIFF(yy, doj, getdate())>3 AND dept_name=’ECE’
+
+
+Write a Query to display total salary of employee based on city?
+
+SELECT city, SUM(salary) 
+FROM employee 
+GROUP BY city;
+
+
+----------------------
+
+i am shobha.
+i pursued my graduation from JNTUH university in the year 2016.
+i have started my carreer in a small comapany as acustomer support using acumatica Tool.
+
+Its been 2 1/2 year of  jouney with diyotta And the people here are very supporting and encouraging always.
+I am lucky that i got this oppurtunity to explore morethings on my own.
+--------------------------------------------------------------------------------------------------------------------------
+
+
+Architectural Components
+-----------------------
+Controller
+
+The Controller is Java based application and is the primary component of the Diyotta software. The Controller manages the metadata repository, client user interface modules and Agent communications.
+
+
+1) userinterface:
+ 
+ User Interface
+
+The Diyotta User interface is browser based (thin client) modules requiring no separate installation and supports security by seamlessly integrating with SSL and SSO tools like LDAP/AD and OKTA.
+
+2)controller:
+
+(The Controller is Java based application and is the primary component of the Diyotta software. The Controller manages the metadata repository, client user interface modules and Agent communications. The controller captures the logical user instructions from user interface and maintains them in the metadata repository. During runtime it then converts these logic instructions stored in metadata into messages that agents can understand and perform necessary actions. It also captures operational and runtime statistics and maintains them in metadata. It is typically installed on a single server and can be setup to provide high availability capabilities.)
+
+ 3)meta_data _repository :(The Metadata Repository is maintained in a relational database. It stores the logical flow of data built through user interface, process scheduling information, operational statistics and administration related metadata. The metadata repository can be hosted PostgreSQL database. Metadata is very lightweight and provides backup and restore procedures)
+ 
+ 4)controller broker :( manages communication between controller and agent):
+ 
+ Broker
+
+The Manager Broker is a Java based application and is bridge between Controller and Agent to pass the instructions and response between them. It creates queues to store and publish the messages between Controller and the associated Agents. Single broker is able to manage communication between a Controller and multiple agents registered to it.
+
+
+ 5) agent (data transtfer ,data receive ,executions):
+ 
+ The Agent is a lightweight Java based application that can be installed on Linux/Unix or windows based systems. It is responsible for picking instructions from the controller and executing those instructions on the requested system. Communication between the Controller and the Agents is encrypted and handled through a message exchange mechanism. The Agents can be logically grouped to distribute the instructions and orchestrate load balancing requirements. Number of agents and location of Agent installation depends on where the source and target data resides and the application architecture demands.
+ 
+ 
+Note:
+lightweight software also called  lightweight application, is a computer program that is designed to have a small memory footprint (RAM usage) and low CPU usage, overall a low usage of system resources.
+ 
+ 
+----------------------------------------
+
+User Guide
+The Diyotta User Guide provides detailed information about all the modules in Diyotta. The user guide covers all the functionalities supported by Diyotta and step by step instructions to work with various components. See below pages for module specific guides.
+
+Using Diyotta Admin
+
+Using Diyotta Studio
+
+Using Diyotta Monitor
+
+Using Diyotta Scheduler
+
+Using Diyotta CLI
+
+
+
+Using Diyotta Studio
+Diyotta Studio is a collaborative multi-user environment to develop and implement data integration processes seamlessly. It provides rich graphical interface with ability to create objects, drag and drop these objects to create data integration pipelines, define run-time properties and orchestrate the flow of these pipelines.
+
+
+
+Below are the major components in Studio that are used to build business logic.
+
+Data Points: This is used to provide connection details for the source and target system.
+
+Data Objects: This is metadata of the physical objects like tables and files.
+
+Data Flow: The data integration pipelines are developed here using the Data points and the Data Objects.
+
+Job Flow: This provides capability to define order and condition based on which data flows should be run
+
+
+
+------------------------------------------------------------------------------------------
+Diyotta Disaster Recovery (DR)
+
+Diyotta server can be configured to support needs. The following is DR setup configuration 
+
+
+
+
+update Employee
+set Gender= 
+case Gender when 'Male' then 'Female' 
+when 'Female' then 'Male'
+else Gender
+end
+
+
+combine all the rows of employee names in a single row.
+
+Declare @val Varchar(MAX); 
+Select @val = COALESCE(@val + ', ' + name, name) 
+        From Employee Select @val;
+		
+
+		
+SELECT *
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_NAME = 'Employee'
+
+
+Identity column:
+
+Identity column of a table is a column whose value increases automatically. The value in an identity column is created by the server. A user generally cannot insert a value into an identity column. Identity column can be used to uniquely identify the rows in the table.
+
+CREATE TABLE City  
+(  
+  ID int IDENTITY(1, 1) PRIMARY KEY, Name varchar(50)  
+)  
+
+
+Alter Table City Add CityId int Identity(1,1)   
+
+
+If we drop a table, does it also drop related objects like constraints, indexes, columns, defaults, Views and Stored Procedures ?
+Ans. YES, SQL Server drops all related objects, which exists inside a table like, constraints, indexes, columns, defaults etc. BUT dropping a table will not drop Views and Stored Procedures as they exists outside the table.
+
+
+Q7). What is the Difference between COALESCE() & ISNULL() ?
+Ans. ISNULL accepts only 2 parameters. The first parameter is checked for NULL value, if it is NULL then the second parameter is returned, otherwise it returns first parameter.
+
+COALESCE accepts two or more parameters. One can apply 2 or as many parameters, but it returns only the first non NULL parameter,
+
+
+How do you generate file output from SQL?
+Ans. While using SQL Server Management Studio or Query Analyzer, we have an option in Menu 
+
+BAR.QUERTY >> RESULT TO >> Result to FILE
+
+
+tools>>options>>queryresult>> Result to FILE
+
+
+How do you prevent SQL Server from giving you informational messages during and after a SQL statement execution?
+
+SET NOCOUNT OFF
+
+By Mistake, Duplicate records exists in a table, how can we delete copy of a record ?
+
+with T as
+(
+    select * , row_number() over (partition by Emp_ID order by Emp_ID) as rank
+    from employee
+)
+ 
+delete
+from T
+where rank > 1
+
+
+
+WHAT OPERATOR PERFORMS PATTERN MATCHING?
+Ans. Pattern matching operator is LIKE and it has to used with two attributes
+
+1. %  means matches zero or more characters and 
+
+2. _ ( underscore ) means matching exactly one character
+
+
+COpy  the table into other in mssql?
+
+select * into  Employee2 from  Employee
+
+select * from  Employee2
+
+
+truncate table Employee3
+
+
+to copy the data from one table to other created table.
+------------------------------------------
+
+INSERT into Employee3 SELECT * FROM Employee;
+
+
+
+Difference between DELETE and TRUNCATE Statements:
+
+DELETE Statement: This command deletes only the rows from the table based on the condition given in the where clause or deletes all the rows from the table if no condition is specified. But it does not free the space containing the table.
+
+DELETE FROM employee WHERE id = 100;
+
+TRUNCATE statement: This command is used to delete all the rows from the table and free the space containing the table.
+
+TRUNCATE TABLE table_name;
+
+
+Write a Query to display total salary of employee based on city?
+
+SELECT city, SUM(salary) 
+FROM employee 
+GROUP BY city;
+
