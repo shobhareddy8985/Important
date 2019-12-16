@@ -1,0 +1,10 @@
+dicmd import [-u userName -w userPassword] -p ProjectName [-l LayerName] -f  [-o GenoptionsJson] [-g GlobalProjectName] [-h GlobalLayerName]
+
+
+dicmd import -p DWH -l edw -f /tmp/jobs_2019_05_27/jf_edw_fact_refund.json
+
+/app/diyotta_prod
+
+
+Cp jf_edw_fact_membership_event.json jf_edw_fact_order.json jf_edw_fact_order_line.json jf_edw_fact_return_line.json jf_mart_fact_membership_activity.json jf_edw_fact_refund.json jf_edw_fact_customer_action.json /app/diyotta_prod
+

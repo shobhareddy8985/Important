@@ -1,0 +1,6 @@
+Name,Salary
+john,2000
+Urek,3000
+sam,4000
+hulk,7673
+prag,8688

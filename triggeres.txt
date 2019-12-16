@@ -22,7 +22,7 @@ A trigger is a special type of stored procedure that automatically runs when an 
 
 
 DDL:create,alter,drop,rename,truncate
-DML:insert,select,update,dalete 
+DML:insert,select,update,delete 
 DCL:Data Control Language  :------ grant,invoke
 TCL:Transaction Control Languages : ------commit,rollback
 
