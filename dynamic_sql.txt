@@ -1,0 +1,74 @@
+Create table Employees
+(
+     ID int primary key identity,
+     FirstName nvarchar(50),
+     LastName nvarchar(50),
+     Gender nvarchar(50),
+     Salary int
+)
+Go
+
+Insert into Employees values ('Mark', 'Hastings', 'Male', 60000)
+Insert into Employees values ('Steve', 'Pound', 'Male', 45000)
+Insert into Employees values ('Ben', 'Hoskins', 'Male', 70000)
+Insert into Employees values ('Philip', 'Hastings', 'Male', 45000)
+Insert into Employees values ('Mary', 'Lambeth', 'Female', 30000)
+Insert into Employees values ('Valarie', 'Vikings', 'Female', 35000)
+Insert into Employees values ('John', 'Stanmore', 'Male', 80000)
+Go
+
+
+two ways to serach the employee using details:
+1.Creating a stored proc with parameter values
+2.creating a dynamic query to search for a particular emp. 
+
+Dynamic queries will use the same query_plan for the mulpiple vales (emapnames)
+
+normal sql queries will use different 
+
+1.creating a stored proc  for seraching a particular emp.
+
+Create Procedure spSearchEmployees
+@FirstName nvarchar(100),
+@LastName nvarchar(100),
+@Gender nvarchar(50),
+@Salary int
+As
+Begin
+
+     Select * from Employees where
+     (FirstName = @FirstName OR @FirstName IS NULL) AND
+     (LastName  = @LastName  OR @LastName  IS NULL) AND
+     (Gender  = @Gender    OR @Gender    IS NULL) AND
+     (Salary   = @Salary    OR @Salary    IS NULL)
+End
+
+
+To get the Employee whose name is Mark using proc:
+--------------------------------------------------
+execute spSearchEmployees 'Mark',NULL,NULL,NULL
+
+
+
+2. creating a dynamic sql query to check the table.
+
+
+Declare @sql nvarchar(1000)
+set @sql = 'select * from Employees'
+---print @sql  ////---print the query in the @SQl variable./////
+Execute sp_executesql @sql
+
+
+
+to filter the firstname whose name is mark in Employee table.
+------------------------------------------------------------
+Declare @sql nvarchar(1000)
+Declare @FirstName nvarchar(1000) 
+set @FirstName = 'Mark'
+set @sql = 'select * from Employees where FirstName = ''' + @FirstName + ''''
+---print @sql
+Execute sp_executesql @sql
+
+or
+
+Execute(@sql)

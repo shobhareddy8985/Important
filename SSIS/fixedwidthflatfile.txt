@@ -1,0 +1,4 @@
+id name		 address   phno  
+1  shobha hyd       123445
+2  geetha bangalore 534234
+3  Anshu  bangalore 876545     

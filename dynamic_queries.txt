@@ -1,0 +1,86 @@
+In this  we will discuss the difference between exec and sp_executesql.
+
+In SQL Servere we have 2 options to execute dynamic sql
+1. Exec/Execute
+2. sp_executesql
+
+We discussed sp_executesql in detail in Part 138 of SQL Server tutorial. Please check out that video if you are new to sp_executesql.
+
+If you do a quick search on the internet for the difference between exec and sp_executesql, you will see that many articles on the web states using exec over sp_executesql will have the following 2 problems
+1. It open doors for sql injection attacks
+2. Cached query plans may not be reused and leads to poor performance
+
+This is generally true, but if you use QUOTENAME() function you can avoid sql injection attacks and with sql server auto-parameterisation capability the cached query plans can be reused so performance is also not an issue. Let's understand these with examples.
+
+What is exec() in SQL Server
+Exec() or Execute() function is used to execute dynamic sql and has only one parameter i.e the dynamic sql statement you want to execute. 
+
+As you can see in the example below, we are concatenating strings to build dynamic sql statements which open doors for sql injection.
+
+Declare @FN nvarchar(50)
+Set @FN = 'John'
+Declare @sql nvarchar(max)
+Set @sql = 'Select * from Employees where FirstName = ''' +  @FN + ''''
+Exec(@sql)
+
+If we set @FN parameter to something like below, it drops SalesDB database
+
+Declare @FN nvarchar(50)
+Set @FN = ''' Drop Database SalesDB --'''
+Declare @sql nvarchar(max)
+Set @sql = 'Select * from Employees where FirstName = ''' + @FN + ''''
+Exec(@sql)
+
+However, we can prevent SQL injection using the QUOTENAME() function as shown below.
+
+Declare @FN nvarchar(50)
+Set @FN = ''' Drop Database SalesDB --'''
+Declare @sql nvarchar(max)
+Set @sql = 'Select * from Employees where FirstName = ' + QUOTENAME(@FN,'''')
+--Print @sql
+Exec(@sql)
+
+Notice with the quotename function we are using a single quote as a delimiter. With the use of this function if there is a single quote in the user input it is doubled.
+
+For example, if we set @FN='John', notice the string 'John' is wrapped in single quotes
+
+Declare @FN nvarchar(50)
+Set @FN = 'John'
+Declare @sql nvarchar(max)
+Set @sql = 'Select * from Employees where FirstName = ' + QUOTENAME(@FN,'''')
+Print @sql
+
+When the above query is executed the following is the query printed
+Select * from Employees where FirstName = 'John'
+
+Along the same lines, if we try to inject sql, QUOTENAME() function wraps all that input in another pair of single quotes treating it as a value for the FirstName column and prevents SQL injection.
+
+With sql server auto-parameterisation capability the cached query plans can be reused. SQL Server can detect parameter values and create parameterised queries on its own, even if you don't explicitly declare them. However, there are exceptions to this. Auto-parameterisation comes in 2 flavours - Simple and Forced. We will discuss auto-parameterisation in detail in a later video.
+
+Execute the following DBCC command to remove all entries from the plan cache
+DBCC FREEPROCCACHE
+
+Execute the following query. Notice we have set @FN='Mary'
+Declare @FN nvarchar(50)
+Set @FN = 'Mary'
+Declare @sql nvarchar(max)
+Set @sql = 'Select * from Employees where FirstName = ' + QUOTENAME(@FN,'''')
+Exec(@sql)
+
+Execute the following query to retrieve what we have in the query plan cache
+SELECT cp.usecounts, cp.cacheobjtype, cp.objtype, st.text, qp.query_plan
+FROM sys.dm_exec_cached_plans AS cp
+CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS st
+CROSS APPLY sys.dm_exec_query_plan(plan_handle) AS qp
+ORDER BY cp.usecounts DESC
+
+Notice we have an auto-parameterised query and at the moment usecounts is 1. 
+
+Now change @FN='Mark' and execute the same query. After the query is completed, retrieve the entries from the plan cache. Notice the usecounts for the auto-parameterised query is 2, suggesting that the same query plan is reused.
+
+Along the same lines, if you change @FN='John' and execute the query, you will see that the usecounts is now 3 for the auto-parameterised query.
+
+Summary
+1. If you use QUOTENAME() function, you can prevent sql injection while using Exec()
+2. Cached query plan reusability is also not an issue while using Exec(), as SQL server automatically parameterize queries.
+3. I personally prefer using sp_executesql over exec() as we can explicitly parameterise queries instead of relying on sql server auto-parameterisation feature or QUOTENAME() function. I use Exec() only in throw away scripts rather than in production code.

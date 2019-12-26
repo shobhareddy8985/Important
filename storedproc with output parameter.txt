@@ -1,0 +1,16 @@
+creation of storedproc with output parameter.
+
+Create procedure sp_employee_getcount_bygender
+@Gender nvarchar(1000),
+@Emp_count int output
+as 
+begin
+select @Emp_count= COUNT(1) from Employees where Gender = @Gender
+end
+
+
+to call the storedproc with output parameter.
+----------------------------------------------------
+declare @emp_count int 
+Exec sp_employee_getcount_bygender 'Male' ,@emp_count output
+print @emp_count

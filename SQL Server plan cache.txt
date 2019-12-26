@@ -1,0 +1,57 @@
+In this video we will discuss
+1. What happens when a query is issued to SQL Server
+2. How to check what is in SQL Server plan cache
+3. Things to consider to promote query plan reusability
+
+What happens when a query is issued to SQL Server
+In SQl Server, every query requires a query plan before it is executed. When you run a query the first time, the query gets compiled and a query plan is generated. This query plan is then saved in sql server query plan cache. 
+
+Next time when we run the same query, the cached query plan is reused. This means sql server does not have to create the plan again for that same query. So reusing a query plan can increase the performance.  
+
+How long the query plan stays in the plan cache depends on how often the plan is reused besides other factors. The more often the plan is reused the longer it stays in the plan cache. 
+
+How to check what is in SQL Server plan cache
+
+SELECT cp.usecounts, cp.cacheobjtype, cp.objtype, st.text, qp.query_plan
+FROM sys.dm_exec_cached_plans AS cp
+CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS st
+CROSS APPLY sys.dm_exec_query_plan(plan_handle) AS qp
+ORDER BY cp.usecounts DESC
+
+As you can see we have sorted the result set by usecounts column in descending order, so we can see the most frequently reused query plans on the top.
+
+usecounts - Number of times the plan is reused
+objtype - Specifies the type of object
+text - Text of the SQL query
+query_plan - Query execution plan in XML format
+
+To remove all elements from the plan cache use the following command
+DBCC FREEPROCCACHE
+
+In older versions of SQL Server up to SQL Server 6.5 only stored procedure plans are cached. The query plans for Adhoc sql statements or dynamic sql statements are not cached, so they get compiled every time. With SQL Server 7, and later versions the query plans for Adhoc sql statements and dynamic sql statements are also cached.
+
+Things to consider to promote query plan reusability
+
+For example, when we execute the following query the first time. The query is compiled, a plan is created and put in the cache.
+Select * From Employees Where FirstName = 'Mark'
+
+When we execute the same query again, it looks up the plan cache, and if a plan is available, it reuses the existing plan instead of creating the plan again which can improve the performance of the query. However, one important thing to keep in mind is that, the cache lookup is by a hash value computed from the query text. If the query text changes even slightly, sql server will not be able to reuse the existing plan.
+
+For example, even if you include an extra space somewhere in the query or you change the case, the query text hash will not match, and sql server will not be able find the plan in cache and ends up compiling the query again and creating a new plan.
+
+Another example : If you want the same query to find an employee whose FirstName is Steve instead of Mark. You would issue the following query
+Select * From Employees Where FirstName = 'Steve'
+
+Even in this case, since the query text has changed the hash will not match, and sql server will not be able find the plan in cache and ends up compiling the query again and creating a new plan.
+
+This is why, it is very important to use parameterised queries for sql server to be able to reuse cached query plans. With parameterised queries, sql server will not treat parameter values as part of the query text. So when you change the parameters values, sql server can still reuse the cached query plan.
+
+The following query uses parameters. So even if you change parameter values, the same query plan is reused.
+
+Declare @FirstName nvarchar(50)
+Set @FirstName = 'Steve'
+Execute sp_executesql N'Select * from Employees where FirstName=@FN', N'@FN nvarchar(50)', @FirstName
+
+One important thing to keep in mind is that, when you have dynamic sql in a stored procedure, the query plan for the stored procedure does not include the dynamic SQL. The block of dynamic SQL has a query plan of its own.
+
+Summary: Never ever concatenate user input values with strings to build dynamic sql statements. Always use parameterised queries which not only promotes cached query plans reuse but also prevent sql injection attacks.
