@@ -1,0 +1,58 @@
+Scenario:
+Let's say we have to load a dimension table from text file. Our business Key is SSN. We need to insert new records depending upon values of SSN column, If any new then we need to insert this records. If SSN already existing in Table then we need to find out if any other column is changed from Source columns values. If that is true then we have to update those values.
+
+What we will learn in this video
+
+How to Read the data from Flat file in SSIS Package
+How to perform Lookup to Find out Existing or Non Existing Records in Destination Table From Source
+How to Insert new Records by using OLE DB Destination
+How to update existing Records by using OLE DB Command Transformation in SSIS Package
+
+
+
+Solution:
+Le't create a table that need Update/Insert operation
+
+CREATE TABLE dbo.DimCustomer
+  (
+     CustomerID INT IDENTITY(1, 1),
+     SSN        VARCHAR(11),
+     FirstName  VARCHAR(50),
+     LastName   VARCHAR(50),
+     Address    VARCHAR(100),
+     LoadDate   DATETIME,
+     UpdateDate DATETIME,
+     LoadedBy   VARCHAR(50),
+     ModifiedBy VARCHAR(50)
+  )
+
+  select * from dbo.DimCustomer
+  
+  
+Sample Data we will use in Source flat File
+
+SSN,FirstName,LastName,Address
+000-000-001,Aamir,Shahzad,NJ USA
+000-000-002,John,River,NC USA
+
+
+Query used in the OLE DB Command Transformation
+
+Update dbo.DimCustomer
+SET FirstName=?,
+LastName=?,
+Address=?,
+UpdateDate=?,
+ModifiedBy=?
+WHERE SSN=?
+
+
+Run the design and check the below table for the results.
+
+select * from dbo.DimCustomer
+
+
+reference video:
+http://www.techbrothersit.com/2015/05/perform-upsert-updateinsert-scd1-by.html
+
+https://www.youtube.com/watch?v=kV_5cZx-b0Q

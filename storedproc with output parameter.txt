@@ -1,5 +1,5 @@
-creation of storedproc with output parameter.
-
+creation of storedproc with one output parameter.
+----------------------------------------------
 Create procedure sp_employee_getcount_bygender
 @Gender nvarchar(1000),
 @Emp_count int output
@@ -9,8 +9,56 @@ select @Emp_count= COUNT(1) from Employees where Gender = @Gender
 end
 
 
-to call the storedproc with output parameter.
+to call the storedproc with one output parameter.
 ----------------------------------------------------
 declare @emp_count int 
 Exec sp_employee_getcount_bygender 'Male' ,@emp_count output
 print @emp_count
+
+
+without output keyword the value returns null.
+----------------------------------------------
+declare @emp_count int 
+Exec sp_employee_getcount_bygender 'feale' ,@emp_count output
+if(@emp_count is null)
+print 'Total emp_count is null'
+else
+print @emp_count
+
+
+to view the stored_proc in MSSQL
+---------------------------------
+sp_help sp_employee_getcount_bygender
+
+to get the body of the stored proc in MSSQL:
+--------------------------------------------
+sp_helptext sp_employee_getcount_bygender
+
+
+
+
+get the count of employees using one ouput parameter :
+----------------------------------------
+Create procedure sp_employee_getcount
+@Emp_count int output
+as 
+begin
+select @Emp_count = COUNT(*) from Employees 
+end
+
+declare @count int 
+Exec sp_employee_getcount @count output
+print @count
+
+get the count of employees using return keyword :
+------------------------------------------------
+Create procedure sp_employee_getcount_suing_return
+as 
+begin
+return(select COUNT(*) from Employees )
+end
+
+
+declare @count int 
+Exec @count = sp_employee_getcount_suing_return 
+print @count /select @count

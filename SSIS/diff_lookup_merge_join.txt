@@ -1,0 +1,24 @@
+difference between using Merge Join  transform with Inner Join option and Lookup transform.
+-------------------------------------------------------------------------------------------
+
+1)if the source and lookup table doesn't have any duplicates in any table then there is no change in the results.
+
+2)if the lookup table will have duplicate records in joining column then merge join will produce the output as inner join in sql.
+but the lookup will elimate the duplicate values and display only one record which is inserted first in lookup table .
+
+3)if  source table is having  duplicate data in joining column both lookup and mergejoin  (inner) results with duplicate data in target.
+
+https://www.youtube.com/watch?v=SJBzByyj-Dk
+https://www.youtube.com/watch?v=7SmF7MhcWhc
+-------------------------------------------------------------------------------------
+
+to perform the merge transform with left join function using lookup we need to select ignore failure option in lookup transform connection.
+----------------------------------------------------------------------------------------------------------------------
+1)if the source and lookup table doesn't have any duplicates in any table then there is no change in the results.
+
+2)if the lookup table will have duplicate records in joining column then merge join will produce the output as left join in T-sql.
+but the lookup will elimate the duplicate values and display only one record which is inserted first in lookup table .
+
+3)if  source table is having  duplicate data in joining column both lookup and mergejoin  (inner) results with duplicate data in target.
+
+

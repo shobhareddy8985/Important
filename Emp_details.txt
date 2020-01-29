@@ -1,7 +1,7 @@
-Empid,EName,Eaddress,phno,Gender
-1,ricky,hyd,34546,M
-2,bob,bang,56356,M
-3,alia,hyd,4567,F
-4,druv,ban,76654,M
-5,ramya,hyd,87675,F
-5,sgfh,frg,4567, 
+Empid,EName,Eaddress,phno,Gender,dept
+1,ricky,hyd,34546,M,java
+2,bob,bang,56356,M,java
+3,alia,hyd,4567,F,java
+4,druv,ban,76654,M,java
+5,ramya,hyd,87675,F,java
+5,sgfh,frg,4567, ,java
