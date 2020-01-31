@@ -1,0 +1,39 @@
+git ssh protocal setup
+
+create user git
+useradd <user_name> from root user
+
+switch to git user
+su - git
+
+Then following the steps to configured for SSH based in OS
+****In linux****
+create ssh key using below command
+	ssh-keygen -t rsa -P ""
+
+copy the content from .ssh/id_rsa.pub to remote machine in the location ".ssh/authorized_keys"
+
+****in windows****
+Create public key from puttygen & copy the public key & paste in the remote machine in the location ".ssh/authorized_keys"
+From conversion tab click Export OpenSSH key & save the file in users .ssh file location.
+
+
+To check if ssh is enabled or not.
+If ssh is enabled properly then it should connect without password.
+ssh <user>@<remote host>
+
+
+Now create local repository 
+mkdir local_repo
+cd local_repo
+
+Now create a file
+git init
+git add <file_name>
+git commit -m "<message>"
+
+
+git remote add origin <user>@<remote_host>:<location of central repository>
+git push origin master
+
+git pull <user>@<remote_host>:<location of central repository>

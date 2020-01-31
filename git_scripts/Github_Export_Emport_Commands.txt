@@ -1,0 +1,74 @@
+Command To Run Import script :
+------------------------------
+/diy_import.sh /app/test/gittest2/gittest test_ys2 /app/test/listfile.dat /app/ditechstyle/diserver/support/tmp/ 
+
+Inputs for the script we are passing:
+------------------------------------
+syntax:
+diy_import.sh <git location> <git branch> <migration list file> <temp location>
+
+
+1)<git location> ----> /app/test/gittest2/gittest --->local git location of new environment you want to import 
+2)<git branch> ----->test_ys2 --->branch you want to import from.
+3)<migration list file>---> /app/test/listfile.dat--> input file which you want to import.
+4)<temp location> /app/ditechstyle/diserver/support/tmp/ -->temporary location for saving temporary files. 
+
+Command To Run export script:
+----------------------------
+./diy_export.sh /app/ditechstyle/listfile.dat /app/ditechstyle/gittest2/ master test_ys3 /app/ditechstyle/diserver/support/tmp/ Myfirstjob 
+
+Inputs for the script we are passing:
+-------------------------------------
+syntax:
+diy_export.sh <list file> <git home location> <git main branch> <git release branch> <temp location> <git commit message>
+
+1)<list file> -->/app/ditechstyle/listfile.dat --->Input file which you want to Export 
+2)<git home location> -->/app/ditechstyle/gittest2/ --->local git location of the environment you want to export
+3)<git main branch> --> master --> main branch name of the git
+4)<git release branch> --> test_ys3 --> branch you want to do the export.Here the exported file will exist/save.
+5)<temp location> -->/app/ditechstyle/diserver/support/tmp/  -->temporary location for saving temporary files.
+6)<git commit message> -->Myfirstjob -->commit message you are passing to exported file.
+
+commands:
+
+to see the branches in the current git location:
+
+  425  git branch
+  426  git branch r
+  427  git branch -r
+  428  git pull .
+  429  git branch -r
+  430  vim .git/config
+  431  git remote update
+  432  git branch -r
+
+git remote update
+
+to get the all the updated branches from where you want to import.
+
+
+
+
+[test@lpcdiapp2 diserver]$ vi diy_import.sh
+[test@lpcdiapp2 diserver]$ git pull
+fatal: Not a git repository (or any of the parent directories): .git
+[test@lpcdiapp2 diserver]$ cd ..
+[test@lpcdiapp2 ~]$ cd gittest2
+[test@lpcdiapp2 gittest2]$ ls
+gittest
+[test@lpcdiapp2 gittest2]$ cd gittest
+[test@lpcdiapp2 gittest]$ ls
+diyotta
+[test@lpcdiapp2 gittest]$ vim .git/config
+[test@lpcdiapp2 gittest]$ git pull
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 7 (delta 1), reused 7 (delta 1), pack-reused 0
+Unpacking objects: 100% (7/7), done.
+From github.com:rajendra9999/gittest
+   7605547..6277555  test_ys10  -> origin/test_ys10
+Already up-to-date.
+[test@lpcdiapp2 gittest]$ ./diy_import.sh /app/test/gittest2/gittest test_ys10 /app/test/listfile.dat /app/test/diserver/support/tmp
+
+git@github.com:rajendra9999/gittest.git

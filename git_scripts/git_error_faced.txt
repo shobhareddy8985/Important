@@ -1,0 +1,54 @@
+1)[ditechstyle@lvclab8130 local_git]$ git push origin master
+To git@github.com:shobhareddy8985/local_techstyle.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:shobhareddy8985/local_techstyle.git'
+To prevent you from losing history, non-fast-forward updates were rejected
+Merge the remote changes before pushing again.  See the 'Note about
+fast-forwards' section of 'git push --help' for details.
+
+
+
+sol:
+use git pull command
+
+git pull origin master
+
+then use git push 
+
+git push origin master
+
+
+2)
+
+[ditechstyle@lvclab8130 local_git]$ git pull origin master
+From github.com:shobhareddy8985/local_techstyle
+ * branch            master     -> FETCH_HEAD
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident  <ditechstyle@lvclab8130.diyotta.com> not allowed
+
+
+
+sol:
+
+set the user name and password using below commands
+
+
+[ditechstyle@lvclab8130 local_git]$ git config user.name
+[ditechstyle@lvclab8130 local_git]$ git config user.name "shobha"
+[ditechstyle@lvclab8130 local_git]$ git config user.name
+shobha
+[ditechstyle@lvclab8130 local_git]$ git config --global user.email "shobha.reddy@diyotta.com"
+[ditechstyle@lvclab8130 local_git]$ git config user.email
+shobha.reddy@diyotta.com
+
+3)

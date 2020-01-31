@@ -1,0 +1,3 @@
+import_object_type,import_object_name,project_name,layer_name,data_point,group_name,object_type
+JOBFLOW,jf_git_import,INSIGHTS_DATAMART_GITHUB_TEST,SF
+JOBFLOW,jf_git_export,INSIGHTS_DATAMART_GITHUB_TEST,SF
