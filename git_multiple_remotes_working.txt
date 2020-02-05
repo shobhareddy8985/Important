@@ -1,0 +1,83 @@
+Adding multiple remotes in local repo and  pushing the files to remote git repository.
+----------------------------------------------------------------------------
+
+1.we need to check the list of remotes in curent local git local.
+git remote -v
+
+E180202@DESKTOP-SHOBHA MINGW64 ~/documents/git_local (test)
+$ git remote -v
+
+o/p:
+origin  git@github.com:shobhareddy8985/Important.git (fetch)
+origin  git@github.com:shobhareddy8985/Important.git (push)
+
+2.Add new remote for the new repository .
+
+syntax:
+git remote add <remote name> <remote url >
+
+git remote add origin1 git@github.com:shobhareddy8985/Techstyle_Repo.git
+
+3.check the remote names which are present 
+
+command : git remote -vi
+
+o/p:
+local_techstyle git@github.com:shobhareddy8985/local_techstyle.git (fetch)
+local_techstyle git@github.com:shobhareddy8985/local_techstyle.git (push)
+origin  git@github.com:shobhareddy8985/Important.git (fetch)
+origin  git@github.com:shobhareddy8985/Important.git (push)
+origin1 git@github.com:shobhareddy8985/Techstyle_Repo.git (fetch)
+origin1 git@github.com:shobhareddy8985/Techstyle_Repo.git (push) 
+
+
+here origin1,local_techstyle are the other local remote name for the  Techstyle_Repo,local_techstyle repository,.
+
+
+
+4.fetch the content from remote to local for all the repositories using git fetch --all  command 
+
+
+E180202@DESKTOP-SHOBHA MINGW64 ~/documents/git_local(master)$ git fetch --all 
+
+Fetching origin
+Fetching origin1
+Fetching local_techstyle
+warning: no common commits
+remote: Enumerating objects: 14, done.
+remote: Counting objects: 100% (14/14), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 14 (delta 0), reused 11 (delta 0), pack-reused 0
+Unpacking objects: 100% (14/14), done.
+From github.com:shobhareddy8985/local_techstyle
+ * [new branch]      feature    -> local_techstyle/feature
+ * [new branch]      master     -> local_techstyle/master
+ 
+ 
+5.change the branch you want to push the local file
+
+git checkout feature
+
+E180202@DESKTOP-SHOBHA MINGW64 ~/documents/git_local (feature)
+
+6.add files using git add command
+
+$ git add author.txt         
+
+7.Commit the file which is staged in above step.
+
+  
+E180202@DESKTOP-SHOBHA MINGW64 ~/documents/git_local (feature)
+$ git commit -m "file pushing in secondary repository from local remote url"  author.txt  
+
+8. Push the file which is commited.
+
+E180202@DESKTOP-SHOBHA MINGW64 ~/documents/git_local (feature)
+$ git push local_techstyle feature
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 309 bytes | 38.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:shobhareddy8985/local_techstyle.git
+   5fd682f..b14ec92  feature -> feature
+                                                                                                                                                                          

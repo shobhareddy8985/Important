@@ -1,0 +1,6 @@
+PersonName,SaleYear,SaleMonth,SaleAmount
+sathya,2020,jan,300
+sathya,2020,feb,350
+sathya,2020,Mar,450
+sathya,2020,Apr,450
+sathya,2020,may,450
