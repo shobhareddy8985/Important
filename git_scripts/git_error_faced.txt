@@ -51,4 +51,20 @@ shobha
 [ditechstyle@lvclab8130 local_git]$ git config user.email
 shobha.reddy@diyotta.com
 
-3)
+3) issue: if the data is exist in remote repo  first after creating local repo do the clone first .
+$ git push
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+
+sol:
+
+$ cd
+$ mkdir tmp
+$ cd tmp
+$ git clone <the repo>
+$ cd <the repo>
+and see if it works. There seem to be local conflicts.
